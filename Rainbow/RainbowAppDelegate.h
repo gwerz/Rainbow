@@ -11,8 +11,24 @@
 @interface RainbowAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     NSWindow *window;
+    NSTextView *logView;
+    NSDrawer *logDrawer;
+    BOOL progressBarVisible;
+    NSProgressIndicator *progressBar;
+    NSTextField *progressLabel;
+    IBOutlet NSTableView *tableScrollView;
 }
 
+- (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size;
+- (void)logStringSimple:(NSString *)string;
+
+- (void)showProgressBar:(BOOL)show animated:(BOOL)animated;
+- (void)setModuleSelectorLocked:(BOOL)locked;
+
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTextView *logView;
+@property (assign) IBOutlet NSDrawer *logDrawer;
+@property (assign) IBOutlet NSProgressIndicator *progressBar;
+@property (assign) IBOutlet NSTextField *progressLabel;
 
 @end

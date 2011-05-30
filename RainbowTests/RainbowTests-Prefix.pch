@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'RainbowTests' target in the 'RainbowTests' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
