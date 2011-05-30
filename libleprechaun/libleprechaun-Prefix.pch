@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'libleprechaun' target in the 'libleprechaun' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

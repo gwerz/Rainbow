@@ -11,11 +11,7 @@
 		52B8B436139307A40099335A /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B434139307A40099335A /* MDNotificationCenter.m */; };
 		52B8B44213930E8D0099335A /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
 		52B8B4531393E54C0099335A /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B4521393E54C0099335A /* Leprechaun.m */; };
-		52B8B461139402750099335A /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B4521393E54C0099335A /* Leprechaun.m */; };
-		52B8B462139402910099335A /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
-		52B8B463139402980099335A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E974901393053500535F7C /* Foundation.framework */; };
-		52B8B4641394029B0099335A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748E1393053500535F7C /* AppKit.framework */; };
-		52B8B4651394029D0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
+		52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E974961393053500535F7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52E974941393053500535F7C /* InfoPlist.strings */; };
 		52E974991393053500535F7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E974981393053500535F7C /* main.m */; };
@@ -34,10 +30,12 @@
 		52B8B43F13930E800099335A /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = ../../../../../System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<group>"; };
 		52B8B44113930E8D0099335A /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = ../../../../../System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<group>"; };
 		52B8B44D1393E4EE0099335A /* leprechaun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "leprechaun-Prefix.pch"; sourceTree = "<group>"; };
-		52B8B4511393E54C0099335A /* Leprechaun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leprechaun.h; sourceTree = "<group>"; };
-		52B8B4521393E54C0099335A /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leprechaun.m; sourceTree = "<group>"; };
-		52B8B4591393F7210099335A /* leprechaun.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = leprechaun.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B8B4511393E54C0099335A /* Leprechaun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Leprechaun.h; path = ../leprechaun/Leprechaun.h; sourceTree = "<group>"; };
+		52B8B4521393E54C0099335A /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leprechaun.m; path = ../leprechaun/Leprechaun.m; sourceTree = "<group>"; };
 		52B8B45D1393F7210099335A /* leprechaun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "leprechaun-Prefix.pch"; sourceTree = "<group>"; };
+		52B8B46A1394048A0099335A /* libleprechaun.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libleprechaun.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B8B46C1394048A0099335A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52B8B46F1394048B0099335A /* libleprechaun-Prefix.pch */ = {isa = PBXFileReference; path = "libleprechaun-Prefix.pch"; sourceTree = "<group>"; };
 		52E974871393053500535F7C /* Rainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E9748B1393053500535F7C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52E9748E1393053500535F7C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -53,14 +51,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		52B8B4561393F7210099335A /* Frameworks */ = {
+		52B8B4671394048A0099335A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B8B462139402910099335A /* MobileDevice.framework in Frameworks */,
-				52B8B463139402980099335A /* Foundation.framework in Frameworks */,
-				52B8B4651394029D0099335A /* Cocoa.framework in Frameworks */,
-				52B8B4641394029B0099335A /* AppKit.framework in Frameworks */,
+				52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +87,6 @@
 		52B8B44B1393E4EE0099335A /* leprechaun */ = {
 			isa = PBXGroup;
 			children = (
-				52B8B4511393E54C0099335A /* Leprechaun.h */,
-				52B8B4521393E54C0099335A /* Leprechaun.m */,
 				52B8B44C1393E4EE0099335A /* Supporting Files */,
 			);
 			path = leprechaun;
@@ -123,6 +116,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		52B8B46D1394048A0099335A /* libleprechaun */ = {
+			isa = PBXGroup;
+			children = (
+				52B8B46E1394048B0099335A /* Supporting Files */,
+			);
+			path = libleprechaun;
+			sourceTree = "<group>";
+		};
+		52B8B46E1394048B0099335A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52B8B46F1394048B0099335A /* libleprechaun-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		52E9747C1393053500535F7C = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +139,7 @@
 				52E974911393053500535F7C /* Rainbow */,
 				52B8B44B1393E4EE0099335A /* leprechaun */,
 				52B8B45B1393F7210099335A /* leprechaun */,
+				52B8B46D1394048A0099335A /* libleprechaun */,
 				52E9748A1393053500535F7C /* Frameworks */,
 				52E974881393053500535F7C /* Products */,
 			);
@@ -139,7 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				52E974871393053500535F7C /* Rainbow.app */,
-				52B8B4591393F7210099335A /* leprechaun.dylib */,
+				52B8B46A1394048A0099335A /* libleprechaun.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,6 +169,7 @@
 			children = (
 				52E9748E1393053500535F7C /* AppKit.framework */,
 				52E974901393053500535F7C /* Foundation.framework */,
+				52B8B46C1394048A0099335A /* CoreData.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -170,6 +181,8 @@
 				52E9749D1393053500535F7C /* RainbowAppDelegate.h */,
 				52E9749E1393053500535F7C /* RainbowAppDelegate.m */,
 				52E974A01393053500535F7C /* Rainbow.xib */,
+				52B8B4511393E54C0099335A /* Leprechaun.h */,
+				52B8B4521393E54C0099335A /* Leprechaun.m */,
 				52E974921393053500535F7C /* Supporting Files */,
 			);
 			path = Rainbow;
@@ -190,7 +203,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		52B8B4571393F7210099335A /* Headers */ = {
+		52B8B4681394048A0099335A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -200,21 +213,21 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		52B8B4581393F7210099335A /* leprechaun */ = {
+		52B8B4691394048A0099335A /* libleprechaun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52B8B45E1393F7210099335A /* Build configuration list for PBXNativeTarget "leprechaun" */;
+			buildConfigurationList = 52B8B4701394048B0099335A /* Build configuration list for PBXNativeTarget "libleprechaun" */;
 			buildPhases = (
-				52B8B4551393F7210099335A /* Sources */,
-				52B8B4561393F7210099335A /* Frameworks */,
-				52B8B4571393F7210099335A /* Headers */,
+				52B8B4661394048A0099335A /* Sources */,
+				52B8B4671394048A0099335A /* Frameworks */,
+				52B8B4681394048A0099335A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = leprechaun;
-			productName = leprechaun;
-			productReference = 52B8B4591393F7210099335A /* leprechaun.dylib */;
+			name = libleprechaun;
+			productName = libleprechaun;
+			productReference = 52B8B46A1394048A0099335A /* libleprechaun.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 		52E974861393053500535F7C /* Rainbow */ = {
@@ -255,7 +268,7 @@
 			projectRoot = "";
 			targets = (
 				52E974861393053500535F7C /* Rainbow */,
-				52B8B4581393F7210099335A /* leprechaun */,
+				52B8B4691394048A0099335A /* libleprechaun */,
 			);
 		};
 /* End PBXProject section */
@@ -274,11 +287,10 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		52B8B4551393F7210099335A /* Sources */ = {
+		52B8B4661394048A0099335A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B8B461139402750099335A /* Leprechaun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,26 +336,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		52B8B45F1393F7210099335A /* Debug */ = {
+		52B8B4711394048B0099335A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
-				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "leprechaun/leprechaun-Prefix.pch";
+				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		52B8B4601393F7210099335A /* Release */ = {
+		52B8B4721394048B0099335A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -351,13 +359,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
-				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "leprechaun/leprechaun-Prefix.pch";
+				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -435,11 +439,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52B8B45E1393F7210099335A /* Build configuration list for PBXNativeTarget "leprechaun" */ = {
+		52B8B4701394048B0099335A /* Build configuration list for PBXNativeTarget "libleprechaun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				52B8B45F1393F7210099335A /* Debug */,
-				52B8B4601393F7210099335A /* Release */,
+				52B8B4711394048B0099335A /* Debug */,
+				52B8B4721394048B0099335A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
