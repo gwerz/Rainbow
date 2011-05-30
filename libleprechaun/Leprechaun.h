@@ -14,33 +14,36 @@
 @interface LeprechaunSimpleModule : NSObject {
 @private
     id<LeprechaunModuleDelegate> _delegate;
+    NSBundle *currentBundle;
+    NSNumber *_loaded;
 }
 
-- (id)initWithDelegate:(id<LeprechaunModuleDelegate>)delegate;
-
 - (void)setup; // do basic setup here
-- (void)unload; // get cleaned up
+- (void)tearDown; // get cleaned up before killed
+
+- (void)start;
+
+- (BOOL)shouldUnloadOnDeselection; // default = YES
+
+- (NSString *)userPresentableName;
 
 - (void)sendLogMessage:(NSString *)message;
 - (void)sendErrorLogMessage:(NSString *)message;
 
+- (BOOL)isLoaded;
+
 @property (assign) id<LeprechaunModuleDelegate> delegate;
+@property (getter=getBundle, readonly) NSBundle *currentBundle;
 
 @end
 
-@interface LeprechaunUIModule : LeprechaunSimpleModule <MDListener> {
+@interface LeprechaunUIModule : LeprechaunSimpleModule {
 @private
     
 }
 
-- (BOOL)enableProgressBarAtStart; // Default = NO
 - (NSSize)requiredViewSize; // how big the view needs to be
-
-// UI module progress bar -- is hidden and shown at bottom of window
-- (void)setProgressBarVisible:(BOOL)visible animated:(BOOL)animated; // will set the unified progress bar visible
-- (void)setProgressBarIsIndeterminate:(BOOL)indeterminate;
-- (void)updateProgressTitle:(NSString *)title; // sets the label text
-- (void)updateProgress:(CGFloat)percent; // sets on progress bar
+- (NSView *)rootView;
 
 - (void)lockModuleSelector; // locks the selection list so that a user may not leave/unload the current module while it's operating... could be hazardous to device
 - (void)unlockModuleSelector;

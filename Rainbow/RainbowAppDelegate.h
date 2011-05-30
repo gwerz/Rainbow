@@ -7,28 +7,32 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MDListener.h"
 
-@interface RainbowAppDelegate : NSObject <NSApplicationDelegate> {
+
+@interface RainbowAppDelegate : NSObject <NSApplicationDelegate, MDListener, NSTableViewDataSource> {
 @private
     NSWindow *window;
     NSTextView *logView;
     NSDrawer *logDrawer;
-    BOOL progressBarVisible;
-    NSProgressIndicator *progressBar;
-    NSTextField *progressLabel;
     IBOutlet NSTableView *tableScrollView;
+    IBOutlet NSImageView *statusOrbView;
+    IBOutlet NSTextField *connectedDeviceLabel;
+    IBOutlet NSBox *moduleView;
 }
 
-- (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size;
-- (void)logStringSimple:(NSString *)string;
+- (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name;
+- (void)logErrorString:(NSString *)string senderName:(NSString *)name;
+- (void)logStringSimple:(NSString *)string senderName:(NSString *)name;
 
-- (void)showProgressBar:(BOOL)show animated:(BOOL)animated;
 - (void)setModuleSelectorLocked:(BOOL)locked;
+- (BOOL)resizeModuleViewToSize:(NSSize)size;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSDrawer *logDrawer;
 @property (assign) IBOutlet NSProgressIndicator *progressBar;
 @property (assign) IBOutlet NSTextField *progressLabel;
+@property (assign) NSBox *moduleView;
 
 @end

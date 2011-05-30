@@ -9,10 +9,10 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>leprechaun.xcscheme</key>
+		<key>TestLeprechaun.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>libleprechaun.xcscheme</key>
 		<dict>
@@ -22,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>52AB55DE13940A7300195CD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>52B8B4481393E4EE0099335A</key>
 		<dict>
 			<key>primary</key>

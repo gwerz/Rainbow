@@ -13,9 +13,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52B8B4691394048A0099335A"
-               BuildableName = "libleprechaun.dylib"
-               BlueprintName = "libleprechaun"
+               BlueprintIdentifier = "52AB55DE13940A7300195CD1"
+               BuildableName = "TestLeprechaun.bundle"
+               BlueprintName = "TestLeprechaun"
                ReferencedContainer = "container:Rainbow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

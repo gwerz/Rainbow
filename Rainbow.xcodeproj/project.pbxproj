@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52AB55D61394051700195CD1 /* Leprechaun.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AB55D41394051700195CD1 /* Leprechaun.h */; };
+		52AB55D71394051700195CD1 /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55D51394051700195CD1 /* Leprechaun.m */; };
+		52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
+		52AB55DA1394093800195CD1 /* libleprechaun.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
+		52AB55F613941A3900195CD1 /* LeprechaunPuncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */; };
+		52AB55F913941C9800195CD1 /* green-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F713941C9800195CD1 /* green-orb.png */; };
+		52AB55FA13941C9800195CD1 /* red-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F813941C9800195CD1 /* red-orb.png */; };
 		52B8B435139307A40099335A /* MDDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B431139307A40099335A /* MDDeviceManager.m */; };
 		52B8B436139307A40099335A /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B434139307A40099335A /* MDNotificationCenter.m */; };
 		52B8B44213930E8D0099335A /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
-		52B8B4531393E54C0099335A /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B4521393E54C0099335A /* Leprechaun.m */; };
 		52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E974961393053500535F7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52E974941393053500535F7C /* InfoPlist.strings */; };
@@ -20,22 +26,47 @@
 		52E974A21393053500535F7C /* Rainbow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E974A01393053500535F7C /* Rainbow.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		52B8971B139437AC00C852D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B8B4691394048A0099335A;
+			remoteInfo = libleprechaun;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52AB55D91394090100195CD1 /* Copy Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				52AB55DA1394093800195CD1 /* libleprechaun.dylib in Copy Libraries */,
+			);
+			name = "Copy Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		52AB55D41394051700195CD1 /* Leprechaun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leprechaun.h; sourceTree = "<group>"; };
+		52AB55D51394051700195CD1 /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leprechaun.m; sourceTree = "<group>"; };
+		52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeprechaunPuncher.h; sourceTree = "<group>"; };
+		52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeprechaunPuncher.m; sourceTree = "<group>"; };
+		52AB55F713941C9800195CD1 /* green-orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-orb.png"; sourceTree = "<group>"; };
+		52AB55F813941C9800195CD1 /* red-orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-orb.png"; sourceTree = "<group>"; };
 		52B8B42F139307650099335A /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDevice.h; sourceTree = "<group>"; };
 		52B8B430139307A40099335A /* MDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDeviceManager.h; sourceTree = "<group>"; };
 		52B8B431139307A40099335A /* MDDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDeviceManager.m; sourceTree = "<group>"; };
 		52B8B432139307A40099335A /* MDListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDListener.h; sourceTree = "<group>"; };
 		52B8B433139307A40099335A /* MDNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNotificationCenter.h; sourceTree = "<group>"; };
 		52B8B434139307A40099335A /* MDNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNotificationCenter.m; sourceTree = "<group>"; };
-		52B8B43F13930E800099335A /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = ../../../../../System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<group>"; };
 		52B8B44113930E8D0099335A /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = ../../../../../System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<group>"; };
-		52B8B44D1393E4EE0099335A /* leprechaun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "leprechaun-Prefix.pch"; sourceTree = "<group>"; };
-		52B8B4511393E54C0099335A /* Leprechaun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Leprechaun.h; path = ../leprechaun/Leprechaun.h; sourceTree = "<group>"; };
-		52B8B4521393E54C0099335A /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leprechaun.m; path = ../leprechaun/Leprechaun.m; sourceTree = "<group>"; };
-		52B8B45D1393F7210099335A /* leprechaun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "leprechaun-Prefix.pch"; sourceTree = "<group>"; };
 		52B8B46A1394048A0099335A /* libleprechaun.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libleprechaun.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B8B46C1394048A0099335A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		52B8B46F1394048B0099335A /* libleprechaun-Prefix.pch */ = {isa = PBXFileReference; path = "libleprechaun-Prefix.pch"; sourceTree = "<group>"; };
+		52B8B46F1394048B0099335A /* libleprechaun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libleprechaun-Prefix.pch"; sourceTree = "<group>"; };
 		52E974871393053500535F7C /* Rainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E9748B1393053500535F7C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52E9748E1393053500535F7C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,6 +96,7 @@
 			files = (
 				52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */,
 				52B8B44213930E8D0099335A /* MobileDevice.framework in Frameworks */,
+				52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,41 +116,11 @@
 			name = "Device Communication";
 			sourceTree = "<group>";
 		};
-		52B8B44B1393E4EE0099335A /* leprechaun */ = {
-			isa = PBXGroup;
-			children = (
-				52B8B44C1393E4EE0099335A /* Supporting Files */,
-			);
-			path = leprechaun;
-			sourceTree = "<group>";
-		};
-		52B8B44C1393E4EE0099335A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				52B8B44D1393E4EE0099335A /* leprechaun-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		52B8B45B1393F7210099335A /* leprechaun */ = {
-			isa = PBXGroup;
-			children = (
-				52B8B45C1393F7210099335A /* Supporting Files */,
-			);
-			path = leprechaun;
-			sourceTree = "<group>";
-		};
-		52B8B45C1393F7210099335A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				52B8B45D1393F7210099335A /* leprechaun-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		52B8B46D1394048A0099335A /* libleprechaun */ = {
 			isa = PBXGroup;
 			children = (
+				52AB55D41394051700195CD1 /* Leprechaun.h */,
+				52AB55D51394051700195CD1 /* Leprechaun.m */,
 				52B8B46E1394048B0099335A /* Supporting Files */,
 			);
 			path = libleprechaun;
@@ -135,10 +137,7 @@
 		52E9747C1393053500535F7C = {
 			isa = PBXGroup;
 			children = (
-				52B8B43F13930E800099335A /* MobileDevice.framework */,
 				52E974911393053500535F7C /* Rainbow */,
-				52B8B44B1393E4EE0099335A /* leprechaun */,
-				52B8B45B1393F7210099335A /* leprechaun */,
 				52B8B46D1394048A0099335A /* libleprechaun */,
 				52E9748A1393053500535F7C /* Frameworks */,
 				52E974881393053500535F7C /* Products */,
@@ -180,9 +179,9 @@
 				52B8B42D1393074D0099335A /* Device Communication */,
 				52E9749D1393053500535F7C /* RainbowAppDelegate.h */,
 				52E9749E1393053500535F7C /* RainbowAppDelegate.m */,
+				52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */,
+				52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */,
 				52E974A01393053500535F7C /* Rainbow.xib */,
-				52B8B4511393E54C0099335A /* Leprechaun.h */,
-				52B8B4521393E54C0099335A /* Leprechaun.m */,
 				52E974921393053500535F7C /* Supporting Files */,
 			);
 			path = Rainbow;
@@ -196,6 +195,8 @@
 				52E974971393053500535F7C /* Rainbow-Prefix.pch */,
 				52E974981393053500535F7C /* main.m */,
 				52E9749A1393053500535F7C /* Credits.rtf */,
+				52AB55F713941C9800195CD1 /* green-orb.png */,
+				52AB55F813941C9800195CD1 /* red-orb.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -207,6 +208,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AB55D61394051700195CD1 /* Leprechaun.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,10 +239,12 @@
 				52E974831393053500535F7C /* Sources */,
 				52E974841393053500535F7C /* Frameworks */,
 				52E974851393053500535F7C /* Resources */,
+				52AB55D91394090100195CD1 /* Copy Libraries */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				52B8971C139437AC00C852D7 /* PBXTargetDependency */,
 			);
 			name = Rainbow;
 			productName = Rainbow;
@@ -281,6 +285,8 @@
 				52E974961393053500535F7C /* InfoPlist.strings in Resources */,
 				52E9749C1393053500535F7C /* Credits.rtf in Resources */,
 				52E974A21393053500535F7C /* Rainbow.xib in Resources */,
+				52AB55F913941C9800195CD1 /* green-orb.png in Resources */,
+				52AB55FA13941C9800195CD1 /* red-orb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52AB55D71394051700195CD1 /* Leprechaun.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,11 +309,19 @@
 				52E9749F1393053500535F7C /* RainbowAppDelegate.m in Sources */,
 				52B8B435139307A40099335A /* MDDeviceManager.m in Sources */,
 				52B8B436139307A40099335A /* MDNotificationCenter.m in Sources */,
-				52B8B4531393E54C0099335A /* Leprechaun.m in Sources */,
+				52AB55F613941A3900195CD1 /* LeprechaunPuncher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52B8971C139437AC00C852D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B8B4691394048A0099335A /* libleprechaun */;
+			targetProxy = 52B8971B139437AC00C852D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		52E974941393053500535F7C /* InfoPlist.strings */ = {
@@ -347,6 +362,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
+				LD_DYLIB_INSTALL_NAME = "@rpath/libleprechaun.dylib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -362,6 +378,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
+				LD_DYLIB_INSTALL_NAME = "@rpath/libleprechaun.dylib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -412,6 +429,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Resources/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -431,6 +449,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Resources/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -446,6 +465,7 @@
 				52B8B4721394048B0099335A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52E974811393053500535F7C /* Build configuration list for PBXProject "Rainbow" */ = {
 			isa = XCConfigurationList;

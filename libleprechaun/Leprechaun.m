@@ -9,35 +9,58 @@
 #import "Leprechaun.h"
 #import "RainbowAppDelegate.h"
 
+#define UserPresentableLogMessage(message) message
 
 @implementation LeprechaunSimpleModule 
 
-@synthesize delegate=_delegate;
+@synthesize delegate=_delegate, currentBundle;
 
-- (id)initWithDelegate:(id<LeprechaunModuleDelegate>)delegate {
-    if(!delegate) return nil;
-    
+- (id)init {
     if((self = [super init]) != nil) {
-        _delegate = delegate;
+        _loaded = [[NSNumber numberWithBool:NO] retain];
     }
     
     return self;
 }
 
 - (void)setup {
+    [_loaded release];
+    _loaded = [[NSNumber numberWithBool:YES] retain];
+}
+
+- (void)start {
     
 }
 
-- (void)unload {
-    
+- (void)tearDown {
+    [_loaded release];
+    _loaded = [[NSNumber numberWithBool:NO] retain];
+}
+
+- (BOOL)shouldUnloadOnDeselection {
+    return YES;
+}
+
+- (NSString *)userPresentableName {
+    return nil;
 }
 
 - (void)sendLogMessage:(NSString *)message {
-    [((RainbowAppDelegate *)NSApp) logStringSimple:message];
+    [((RainbowAppDelegate *)[NSApp delegate]) logStringSimple:UserPresentableLogMessage(message) senderName:[self userPresentableName]];
 }
 
 - (void)sendErrorLogMessage:(NSString *)message {
-    [((RainbowAppDelegate *)NSApp) logString:message color:[NSColor redColor] fontSize:12];
+    [((RainbowAppDelegate *)[NSApp delegate]) logErrorString:UserPresentableLogMessage(message) senderName:[self userPresentableName]];
+}
+
+- (BOOL)isLoaded {
+    return [_loaded boolValue];
+}
+
+- (void)dealloc {
+    [_loaded release];
+    [currentBundle release];
+    [super dealloc];
 }
 
 @end
@@ -53,28 +76,16 @@
     return NSMakeSize(500, 500);
 }
 
-- (void)setProgressBarVisible:(BOOL)visible animated:(BOOL)animated {
-    [((RainbowAppDelegate *)NSApp) showProgressBar:visible animated:animated];
-}
-
-- (void)setProgressBarIsIndeterminate:(BOOL)indeterminate {
-    [((RainbowAppDelegate *)NSApp).progressBar setIndeterminate:indeterminate];
-}
-
-- (void)updateProgressTitle:(NSString *)title {
-    [((RainbowAppDelegate *)NSApp).progressLabel setStringValue:title];
-}
-
-- (void)updateProgress:(CGFloat)percent {
-    [((RainbowAppDelegate *)NSApp).progressBar setDoubleValue:percent];
-}
-
 - (void)lockModuleSelector {
-    [((RainbowAppDelegate *)NSApp) setModuleSelectorLocked:YES];
+    [((RainbowAppDelegate *)[NSApp delegate]) setModuleSelectorLocked:YES];
 }
 
 - (void)unlockModuleSelector {
-    [((RainbowAppDelegate *)NSApp) setModuleSelectorLocked:NO];
+    [((RainbowAppDelegate *)[NSApp delegate]) setModuleSelectorLocked:NO];
+}
+
+- (NSView *)rootView {
+    return nil;
 }
 
 @end
