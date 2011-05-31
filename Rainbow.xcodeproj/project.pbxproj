@@ -7,9 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		524B49961394586200E16B56 /* MDDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B431139307A40099335A /* MDDeviceManager.m */; };
-		524B49971394586400E16B56 /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B434139307A40099335A /* MDNotificationCenter.m */; };
 		524B499913946CCB00E16B56 /* EnterRecovery.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524B499813946CCB00E16B56 /* EnterRecovery.xib */; };
+		524B49BF13949EFB00E16B56 /* libiusbcomm.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */; };
+		524B49D013949F4200E16B56 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49CF13949F4200E16B56 /* CoreFoundation.framework */; };
+		524B49D213949F4800E16B56 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D113949F4800E16B56 /* IOKit.framework */; };
+		524B49D813949F6A00E16B56 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
+		524B49DF13949F9900E16B56 /* libluckycharms.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
+		524B49E313949FC600E16B56 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49E213949FC600E16B56 /* MobileDevice.framework */; };
+		524B49EF1394A0E600E16B56 /* helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 524B49E91394A0E600E16B56 /* helper.c */; };
+		524B49F01394A0E600E16B56 /* helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49EA1394A0E600E16B56 /* helper.h */; };
+		524B49F11394A0E600E16B56 /* listen.c in Sources */ = {isa = PBXBuildFile; fileRef = 524B49EB1394A0E600E16B56 /* listen.c */; };
+		524B49F21394A0E600E16B56 /* listen.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49EC1394A0E600E16B56 /* listen.h */; };
+		524B49F31394A0E600E16B56 /* recovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 524B49ED1394A0E600E16B56 /* recovery.c */; };
+		524B49F41394A0E600E16B56 /* recovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49EE1394A0E600E16B56 /* recovery.h */; };
+		524B49FB1394A15D00E16B56 /* MDDeviceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49F51394A15D00E16B56 /* MDDeviceManager.h */; };
+		524B49FC1394A15D00E16B56 /* MDDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 524B49F61394A15D00E16B56 /* MDDeviceManager.m */; };
+		524B49FD1394A15D00E16B56 /* MDListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49F71394A15D00E16B56 /* MDListener.h */; };
+		524B49FE1394A15D00E16B56 /* MDNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49F81394A15D00E16B56 /* MDNotificationCenter.h */; };
+		524B49FF1394A15D00E16B56 /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 524B49F91394A15D00E16B56 /* MDNotificationCenter.m */; };
+		524B4A001394A15D00E16B56 /* MobileDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49FA1394A15D00E16B56 /* MobileDevice.h */; };
+		524B4A011394A1D800E16B56 /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
+		524B4A021394A1E800E16B56 /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
 		52AB55D61394051700195CD1 /* Leprechaun.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AB55D41394051700195CD1 /* Leprechaun.h */; };
 		52AB55D71394051700195CD1 /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55D51394051700195CD1 /* Leprechaun.m */; };
 		52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
@@ -35,6 +53,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		524B49CD13949F3000E16B56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 524B49BA13949EDA00E16B56;
+			remoteInfo = iusbcomm;
+		};
+		524B49E013949F9D00E16B56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 524B49D613949F6A00E16B56;
+			remoteInfo = libluckycharms;
+		};
 		52B8971B139437AC00C852D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52E9747E1393053500535F7C /* Project object */;
@@ -58,7 +90,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				524B49DF13949F9900E16B56 /* libluckycharms.dylib in Copy Libraries */,
 				52AB55DA1394093800195CD1 /* libleprechaun.dylib in Copy Libraries */,
+				524B49BF13949EFB00E16B56 /* libiusbcomm.dylib in Copy Libraries */,
 			);
 			name = "Copy Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +101,24 @@
 
 /* Begin PBXFileReference section */
 		524B499813946CCB00E16B56 /* EnterRecovery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterRecovery.xib; sourceTree = "<group>"; };
+		524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libiusbcomm.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		524B49CF13949F4200E16B56 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		524B49D113949F4800E16B56 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		524B49D713949F6A00E16B56 /* libluckycharms.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libluckycharms.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		524B49DB13949F6A00E16B56 /* libluckycharms-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libluckycharms-Prefix.pch"; sourceTree = "<group>"; };
+		524B49E213949FC600E16B56 /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = /System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<absolute>"; };
+		524B49E91394A0E600E16B56 /* helper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = helper.c; path = ../libiusbcomm/helper.c; sourceTree = "<group>"; };
+		524B49EA1394A0E600E16B56 /* helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = helper.h; path = ../libiusbcomm/helper.h; sourceTree = "<group>"; };
+		524B49EB1394A0E600E16B56 /* listen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = listen.c; path = ../libiusbcomm/listen.c; sourceTree = "<group>"; };
+		524B49EC1394A0E600E16B56 /* listen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = listen.h; path = ../libiusbcomm/listen.h; sourceTree = "<group>"; };
+		524B49ED1394A0E600E16B56 /* recovery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = recovery.c; path = ../libiusbcomm/recovery.c; sourceTree = "<group>"; };
+		524B49EE1394A0E600E16B56 /* recovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = recovery.h; path = ../libiusbcomm/recovery.h; sourceTree = "<group>"; };
+		524B49F51394A15D00E16B56 /* MDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDDeviceManager.h; path = ../libluckycharms/MDDeviceManager.h; sourceTree = "<group>"; };
+		524B49F61394A15D00E16B56 /* MDDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDDeviceManager.m; path = ../libluckycharms/MDDeviceManager.m; sourceTree = "<group>"; };
+		524B49F71394A15D00E16B56 /* MDListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDListener.h; path = ../libluckycharms/MDListener.h; sourceTree = "<group>"; };
+		524B49F81394A15D00E16B56 /* MDNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MDNotificationCenter.h; path = ../libluckycharms/MDNotificationCenter.h; sourceTree = "<group>"; };
+		524B49F91394A15D00E16B56 /* MDNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MDNotificationCenter.m; path = ../libluckycharms/MDNotificationCenter.m; sourceTree = "<group>"; };
+		524B49FA1394A15D00E16B56 /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobileDevice.h; path = ../libluckycharms/MobileDevice.h; sourceTree = "<group>"; };
 		52AB55D41394051700195CD1 /* Leprechaun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leprechaun.h; sourceTree = "<group>"; };
 		52AB55D51394051700195CD1 /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leprechaun.m; sourceTree = "<group>"; };
 		52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeprechaunPuncher.h; sourceTree = "<group>"; };
@@ -79,12 +131,6 @@
 		52B897291394460400C852D7 /* EnterRecovery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EnterRecovery-Prefix.pch"; sourceTree = "<group>"; };
 		52B8972E1394464E00C852D7 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
 		52B8972F1394464E00C852D7 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
-		52B8B42F139307650099335A /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDevice.h; sourceTree = "<group>"; };
-		52B8B430139307A40099335A /* MDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDeviceManager.h; sourceTree = "<group>"; };
-		52B8B431139307A40099335A /* MDDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDeviceManager.m; sourceTree = "<group>"; };
-		52B8B432139307A40099335A /* MDListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDListener.h; sourceTree = "<group>"; };
-		52B8B433139307A40099335A /* MDNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNotificationCenter.h; sourceTree = "<group>"; };
-		52B8B434139307A40099335A /* MDNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNotificationCenter.m; sourceTree = "<group>"; };
 		52B8B44113930E8D0099335A /* MobileDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileDevice.framework; path = ../../../../../System/Library/PrivateFrameworks/MobileDevice.framework; sourceTree = "<group>"; };
 		52B8B46A1394048A0099335A /* libleprechaun.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libleprechaun.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B8B46C1394048A0099335A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -104,12 +150,31 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		524B49B813949EDA00E16B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524B49D213949F4800E16B56 /* IOKit.framework in Frameworks */,
+				524B49D013949F4200E16B56 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524B49D413949F6A00E16B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524B49E313949FC600E16B56 /* MobileDevice.framework in Frameworks */,
+				524B49D813949F6A00E16B56 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B8971E1394460400C852D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52B897221394460400C852D7 /* Cocoa.framework in Frameworks */,
 				52B8972D1394461D00C852D7 /* libleprechaun.dylib in Frameworks */,
+				524B4A011394A1D800E16B56 /* libluckycharms.dylib in Frameworks */,
 				52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +194,7 @@
 			files = (
 				52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */,
 				52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */,
+				524B4A021394A1E800E16B56 /* libluckycharms.dylib in Frameworks */,
 				52EEAA1B13944DDA00C1A205 /* MobileDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +202,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524B49C013949F0300E16B56 /* libiusbcomm */ = {
+			isa = PBXGroup;
+			children = (
+				524B49E81394A0D700E16B56 /* src */,
+				524B49E41394A02600E16B56 /* Frameworks */,
+			);
+			name = libiusbcomm;
+			sourceTree = "<group>";
+		};
+		524B49D913949F6A00E16B56 /* libluckycharms */ = {
+			isa = PBXGroup;
+			children = (
+				524B49E51394A03500E16B56 /* Frameworks */,
+				52B8B42D1393074D0099335A /* Device Communication */,
+				524B49DA13949F6A00E16B56 /* Supporting Files */,
+			);
+			path = libluckycharms;
+			sourceTree = "<group>";
+		};
+		524B49DA13949F6A00E16B56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				524B49DB13949F6A00E16B56 /* libluckycharms-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		524B49E41394A02600E16B56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				524B49D113949F4800E16B56 /* IOKit.framework */,
+				524B49CF13949F4200E16B56 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		524B49E51394A03500E16B56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				524B49E213949FC600E16B56 /* MobileDevice.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		524B49E81394A0D700E16B56 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				524B49E91394A0E600E16B56 /* helper.c */,
+				524B49EA1394A0E600E16B56 /* helper.h */,
+				524B49EB1394A0E600E16B56 /* listen.c */,
+				524B49EC1394A0E600E16B56 /* listen.h */,
+				524B49ED1394A0E600E16B56 /* recovery.c */,
+				524B49EE1394A0E600E16B56 /* recovery.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		52B897231394460400C852D7 /* EnterRecovery */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,12 +283,12 @@
 		52B8B42D1393074D0099335A /* Device Communication */ = {
 			isa = PBXGroup;
 			children = (
-				52B8B432139307A40099335A /* MDListener.h */,
-				52B8B430139307A40099335A /* MDDeviceManager.h */,
-				52B8B431139307A40099335A /* MDDeviceManager.m */,
-				52B8B433139307A40099335A /* MDNotificationCenter.h */,
-				52B8B434139307A40099335A /* MDNotificationCenter.m */,
-				52B8B42F139307650099335A /* MobileDevice.h */,
+				524B49F51394A15D00E16B56 /* MDDeviceManager.h */,
+				524B49F61394A15D00E16B56 /* MDDeviceManager.m */,
+				524B49F71394A15D00E16B56 /* MDListener.h */,
+				524B49F81394A15D00E16B56 /* MDNotificationCenter.h */,
+				524B49F91394A15D00E16B56 /* MDNotificationCenter.m */,
+				524B49FA1394A15D00E16B56 /* MobileDevice.h */,
 			);
 			name = "Device Communication";
 			path = ../Rainbow;
@@ -174,7 +297,6 @@
 		52B8B46D1394048A0099335A /* libleprechaun */ = {
 			isa = PBXGroup;
 			children = (
-				52B8B42D1393074D0099335A /* Device Communication */,
 				52AB55D41394051700195CD1 /* Leprechaun.h */,
 				52AB55D51394051700195CD1 /* Leprechaun.m */,
 				52B8B46E1394048B0099335A /* Supporting Files */,
@@ -196,6 +318,8 @@
 				52E974911393053500535F7C /* Rainbow */,
 				52B8B46D1394048A0099335A /* libleprechaun */,
 				52B897231394460400C852D7 /* EnterRecovery */,
+				524B49C013949F0300E16B56 /* libiusbcomm */,
+				524B49D913949F6A00E16B56 /* libluckycharms */,
 				52E9748A1393053500535F7C /* Frameworks */,
 				52E974881393053500535F7C /* Products */,
 			);
@@ -207,6 +331,8 @@
 				52E974871393053500535F7C /* Rainbow.app */,
 				52B8B46A1394048A0099335A /* libleprechaun.dylib */,
 				52B897211394460400C852D7 /* EnterRecovery.bundle */,
+				524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */,
+				524B49D713949F6A00E16B56 /* libluckycharms.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +387,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		524B49B913949EDA00E16B56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524B49F01394A0E600E16B56 /* helper.h in Headers */,
+				524B49F21394A0E600E16B56 /* listen.h in Headers */,
+				524B49F41394A0E600E16B56 /* recovery.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524B49D513949F6A00E16B56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524B49FB1394A15D00E16B56 /* MDDeviceManager.h in Headers */,
+				524B49FD1394A15D00E16B56 /* MDListener.h in Headers */,
+				524B49FE1394A15D00E16B56 /* MDNotificationCenter.h in Headers */,
+				524B4A001394A15D00E16B56 /* MobileDevice.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B8B4681394048A0099335A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +419,40 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		524B49BA13949EDA00E16B56 /* iusbcomm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524B49BC13949EDA00E16B56 /* Build configuration list for PBXNativeTarget "iusbcomm" */;
+			buildPhases = (
+				524B49B713949EDA00E16B56 /* Sources */,
+				524B49B813949EDA00E16B56 /* Frameworks */,
+				524B49B913949EDA00E16B56 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iusbcomm;
+			productName = iusbcomm;
+			productReference = 524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		524B49D613949F6A00E16B56 /* libluckycharms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 524B49DC13949F6A00E16B56 /* Build configuration list for PBXNativeTarget "libluckycharms" */;
+			buildPhases = (
+				524B49D313949F6A00E16B56 /* Sources */,
+				524B49D413949F6A00E16B56 /* Frameworks */,
+				524B49D513949F6A00E16B56 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libluckycharms;
+			productName = libluckycharms;
+			productReference = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		52B897201394460400C852D7 /* EnterRecovery */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B8972A1394460400C852D7 /* Build configuration list for PBXNativeTarget "EnterRecovery" */;
@@ -318,7 +499,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				524B49E113949F9D00E16B56 /* PBXTargetDependency */,
 				52B8971C139437AC00C852D7 /* PBXTargetDependency */,
+				524B49CE13949F3000E16B56 /* PBXTargetDependency */,
 				52B897321394476D00C852D7 /* PBXTargetDependency */,
 			);
 			name = Rainbow;
@@ -348,6 +531,8 @@
 			targets = (
 				52E974861393053500535F7C /* Rainbow */,
 				52B8B4691394048A0099335A /* libleprechaun */,
+				524B49BA13949EDA00E16B56 /* iusbcomm */,
+				524B49D613949F6A00E16B56 /* libluckycharms */,
 				52B897201394460400C852D7 /* EnterRecovery */,
 			);
 		};
@@ -379,6 +564,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		524B49B713949EDA00E16B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524B49EF1394A0E600E16B56 /* helper.c in Sources */,
+				524B49F11394A0E600E16B56 /* listen.c in Sources */,
+				524B49F31394A0E600E16B56 /* recovery.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		524B49D313949F6A00E16B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				524B49FC1394A15D00E16B56 /* MDDeviceManager.m in Sources */,
+				524B49FF1394A15D00E16B56 /* MDNotificationCenter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B8971D1394460400C852D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,8 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				52AB55D71394051700195CD1 /* Leprechaun.m in Sources */,
-				524B49961394586200E16B56 /* MDDeviceManager.m in Sources */,
-				524B49971394586400E16B56 /* MDNotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +612,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		524B49CE13949F3000E16B56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 524B49BA13949EDA00E16B56 /* iusbcomm */;
+			targetProxy = 524B49CD13949F3000E16B56 /* PBXContainerItemProxy */;
+		};
+		524B49E113949F9D00E16B56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 524B49D613949F6A00E16B56 /* libluckycharms */;
+			targetProxy = 524B49E013949F9D00E16B56 /* PBXContainerItemProxy */;
+		};
 		52B8971C139437AC00C852D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 52B8B4691394048A0099335A /* libleprechaun */;
@@ -458,6 +670,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		524B49BD13949EDA00E16B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		524B49BE13949EDA00E16B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		524B49DD13949F6A00E16B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libluckycharms/libluckycharms-Prefix.pch";
+				LD_DYLIB_INSTALL_NAME = "@rpath/libluckycharms.dylib";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		524B49DE13949F6A00E16B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "libluckycharms/libluckycharms-Prefix.pch";
+				LD_DYLIB_INSTALL_NAME = "@rpath/libluckycharms.dylib";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		52B8972B1394460400C852D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -552,6 +830,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -566,6 +845,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -613,6 +893,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		524B49BC13949EDA00E16B56 /* Build configuration list for PBXNativeTarget "iusbcomm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524B49BD13949EDA00E16B56 /* Debug */,
+				524B49BE13949EDA00E16B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		524B49DC13949F6A00E16B56 /* Build configuration list for PBXNativeTarget "libluckycharms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				524B49DD13949F6A00E16B56 /* Debug */,
+				524B49DE13949F6A00E16B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		52B8972A1394460400C852D7 /* Build configuration list for PBXNativeTarget "EnterRecovery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

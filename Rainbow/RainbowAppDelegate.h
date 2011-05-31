@@ -19,6 +19,7 @@
     IBOutlet NSImageView *statusOrbView;
     IBOutlet NSTextField *connectedDeviceLabel;
     IBOutlet NSBox *moduleView;
+    id _currentModuleView;
 }
 
 - (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name;
@@ -28,11 +29,14 @@
 - (void)setModuleSelectorLocked:(BOOL)locked;
 - (BOOL)resizeModuleViewToSize:(NSSize)size;
 
+- (void)setCurrentModuleView:(NSView *)view;
+
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSDrawer *logDrawer;
 @property (assign) IBOutlet NSProgressIndicator *progressBar;
 @property (assign) IBOutlet NSTextField *progressLabel;
 @property (assign) NSBox *moduleView;
+@property (assign) id _currentModuleView;
 
 @end

@@ -103,7 +103,7 @@
 }
 
 - (NSString *)userPresentableName {
-    return @"Enter Recovery";
+    return @"Recovery Toggler";
 }
 
 @end

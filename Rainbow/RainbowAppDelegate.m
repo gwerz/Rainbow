@@ -11,15 +11,14 @@
 #import "MDNotificationCenter.h"
 #import "LeprechaunPuncher.h"
 
-#define ONE_CLICK_MODULE_TAG 8888
-#define UI_MODULE_TAG 9999
+#define MODULE_VIEW_TAG 0xFADA
 
 @implementation RainbowAppDelegate
 
 static NSImage *redOrbImage = nil;
 static NSImage *greenOrbImage = nil;
 
-@synthesize window, logView, logDrawer, progressBar, progressLabel, moduleView;
+@synthesize window, logView, logDrawer, progressBar, progressLabel, moduleView, _currentModuleView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     (void)[LeprechaunPuncher sharedInstance];
@@ -29,6 +28,8 @@ static NSImage *greenOrbImage = nil;
     
     [logView setEditable:NO];
     [logDrawer open:self];
+    
+    _currentModuleView = nil;
     
     [window setContentBorderThickness:25.0 forEdge:NSMinYEdge];
     [window setMovableByWindowBackground:YES];
@@ -40,7 +41,7 @@ static NSImage *greenOrbImage = nil;
     
     [self logString:@"Welcome to Rainbow, the most powerful iDevice utility!" color:[NSColor blueColor] fontSize:16 senderName:@"Rainbow"];
     
-    [[LeprechaunPuncher sharedInstance] runModuleNamed:@"EnterRecovery"];
+    [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name {
@@ -94,6 +95,9 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (BOOL)resizeModuleViewToSize:(NSSize)size {
+    if(_currentModuleView)
+        [_currentModuleView removeFromSuperview];
+    
     NSRect frame = [window frame];
     NSRect mFrame = [moduleView frame];
     NSRect sFrame = [[NSScreen mainScreen] visibleFrame];
@@ -177,12 +181,22 @@ static NSImage *greenOrbImage = nil;
     [[LeprechaunPuncher sharedInstance] unloadAllModules];
 }
 
+- (void)setCurrentModuleView:(NSView *)view {
+    [moduleView addSubview:view];
+    
+    _currentModuleView = view;
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return [[[LeprechaunPuncher sharedInstance] moduleNames] count];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     return [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:row];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+    [[LeprechaunPuncher sharedInstance] runModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
 }
 
 @end

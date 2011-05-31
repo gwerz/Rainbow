@@ -48,23 +48,17 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 }
 
 - (void)runModuleNamed:(NSString *)name {
-    while(!loadedModules) { usleep(500); }
-    
-    for(NSString *name in [modules allKeys]) {
-        id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
-        if(![instance isLoaded]) {
-            [self _setupModule:instance];
+    id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
+    if(![instance isLoaded]) {
+        [self _setupModule:instance];
             
-//            id view = [[((RainbowAppDelegate *)[NSApp delegate]).moduleView subviews] objectAtIndex:0];
-//            if(view != nil) {
-//                [view removeFromSuperview];
-//            }
+        [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[instance requiredViewSize]];
+        [((RainbowAppDelegate *)[NSApp delegate]) setCurrentModuleView:[instance rootView]];
             
-            [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[instance requiredViewSize]];
-            [((RainbowAppDelegate *)[NSApp delegate]).moduleView addSubview:[instance rootView]];
-            
-            [instance start];
-        }
+        [instance start];
+    } else {
+        [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[instance requiredViewSize]];
+        [((RainbowAppDelegate *)[NSApp delegate]) setCurrentModuleView:[instance rootView]];
     }
 }
 
@@ -78,7 +72,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 }
 
 - (NSArray *)moduleNames {
-    return [modules allKeys];
+    return [[modules allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 - (void)reloadAllModules {
