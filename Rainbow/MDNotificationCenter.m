@@ -12,6 +12,8 @@
 NSString *MDNotificationDeviceAttached = @"MDDeviceAttached";
 NSString *MDNotificationDeviceDetached = @"MDDeviceDetached";
 
+AMDeviceSubscriptionRef subscription = NULL;
+
 /* Callbacks */
 
 void device_notification(AMDeviceNotificationRef notification) {
@@ -96,6 +98,9 @@ static MDNotificationCenter *sharedMDNotificationCenter = nil;
     @synchronized(self) {
         if (!sharedMDNotificationCenter) {
             sharedMDNotificationCenter = [[self alloc] init];
+            
+            AMDeviceNotificationSubscribe(device_notification, 0, 0, 0, &subscription);
+            AMRestoreRegisterForDeviceNotifications(dfu_connected, recovery_connected, dfu_disconnected, recovery_disconnected, 0, NULL);
         }
     }
     
@@ -106,9 +111,6 @@ static MDNotificationCenter *sharedMDNotificationCenter = nil;
     self = [super init];
     if (self) {
         _listeners = [[NSMutableSet alloc] init];
-        
-        AMDeviceNotificationSubscribe(device_notification, 0, 0, 0, &subscription);
-        AMRestoreRegisterForDeviceNotifications(dfu_connected, recovery_connected, dfu_disconnected, recovery_disconnected, 0, NULL);
     }
     
     return self;

@@ -9,13 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "MDListener.h"
 
-@protocol LeprechaunModuleDelegate;
 
-@interface LeprechaunSimpleModule : NSObject {
+@interface LeprechaunModule : NSObject {
 @private
-    id<LeprechaunModuleDelegate> _delegate;
-    NSBundle *currentBundle;
     NSNumber *_loaded;
+    NSBundle *_currentBundle;
 }
 
 - (void)setup; // do basic setup here
@@ -23,36 +21,21 @@
 
 - (void)start;
 
-- (BOOL)shouldUnloadOnDeselection; // default = YES
-
 - (NSString *)userPresentableName;
 
 - (void)sendLogMessage:(NSString *)message;
 - (void)sendErrorLogMessage:(NSString *)message;
 
-- (BOOL)isLoaded;
-
-@property (assign) id<LeprechaunModuleDelegate> delegate;
-@property (getter=getBundle, readonly) NSBundle *currentBundle;
-
-@end
-
-@interface LeprechaunUIModule : LeprechaunSimpleModule {
-@private
-    
-}
-
 - (NSSize)requiredViewSize; // how big the view needs to be
 - (NSView *)rootView;
+
+- (BOOL)shouldUnloadOnDeselection; // default = YES
 
 - (void)lockModuleSelector; // locks the selection list so that a user may not leave/unload the current module while it's operating... could be hazardous to device
 - (void)unlockModuleSelector;
 
-@end
+- (BOOL)isLoaded; // Used only by loader. DO NOT OVERRIDE
 
-@protocol LeprechaunModuleDelegate <NSObject>
-
-@required
-- (void)leprechaunModuleFinished:(id)module;
+@property (readonly) NSBundle *currentBundle;
 
 @end

@@ -18,11 +18,6 @@
 
 - (NSArray *)moduleNames;
 
-- (NSInteger)oneClickModules;
-- (NSInteger)uiModules;
-
-- (BOOL)moduleIsOneClickNamed:(NSString *)name;
-
 - (void)runModuleNamed:(NSString *)name;
 - (void)tearDownModuleNamed:(NSString *)name;
 

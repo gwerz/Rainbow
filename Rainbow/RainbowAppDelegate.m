@@ -39,6 +39,8 @@ static NSImage *greenOrbImage = nil;
     [[MDNotificationCenter sharedInstance] addListener:self];
     
     [self logString:@"Welcome to Rainbow, the most powerful iDevice utility!" color:[NSColor blueColor] fontSize:16 senderName:@"Rainbow"];
+    
+    [[LeprechaunPuncher sharedInstance] runModuleNamed:@"EnterRecovery"];
 }
 
 - (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name {
@@ -176,43 +178,11 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    switch([tableView tag]) {
-        case ONE_CLICK_MODULE_TAG:
-            return [[LeprechaunPuncher sharedInstance] oneClickModules];
-            break;
-        case UI_MODULE_TAG:
-            return [[LeprechaunPuncher sharedInstance] uiModules];
-            break;
-    }
-    
-    return 0;
+    return [[[LeprechaunPuncher sharedInstance] moduleNames] count];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSInteger skipped = 0;
-    
-    switch([tableView tag]) {
-        case ONE_CLICK_MODULE_TAG:
-            for(NSString *name in [[LeprechaunPuncher sharedInstance] moduleNames]) {
-                if([[LeprechaunPuncher sharedInstance] moduleIsOneClickNamed:name])
-                    if(skipped == row)
-                        return name;
-                    else 
-                        skipped++;
-            }
-            break;
-        case UI_MODULE_TAG:
-            for(NSString *name in [[LeprechaunPuncher sharedInstance] moduleNames]) {
-                if(![[LeprechaunPuncher sharedInstance] moduleIsOneClickNamed:name])
-                    if(skipped == row)
-                        return name;
-                    else 
-                        skipped++;
-            }
-            break;
-    }
-    
-    return nil;
+    return [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:row];
 }
 
 @end

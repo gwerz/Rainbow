@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>EnterRecovery.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Rainbow.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,17 +17,22 @@
 		<key>TestLeprechaun.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<key>libleprechaun.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>52AB55DE13940A7300195CD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52B897201394460400C852D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

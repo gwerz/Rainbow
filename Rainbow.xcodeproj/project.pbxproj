@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524B49961394586200E16B56 /* MDDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B431139307A40099335A /* MDDeviceManager.m */; };
+		524B49971394586400E16B56 /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B434139307A40099335A /* MDNotificationCenter.m */; };
+		524B499913946CCB00E16B56 /* EnterRecovery.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524B499813946CCB00E16B56 /* EnterRecovery.xib */; };
 		52AB55D61394051700195CD1 /* Leprechaun.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AB55D41394051700195CD1 /* Leprechaun.h */; };
 		52AB55D71394051700195CD1 /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55D51394051700195CD1 /* Leprechaun.m */; };
 		52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
@@ -14,9 +17,12 @@
 		52AB55F613941A3900195CD1 /* LeprechaunPuncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */; };
 		52AB55F913941C9800195CD1 /* green-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F713941C9800195CD1 /* green-orb.png */; };
 		52AB55FA13941C9800195CD1 /* red-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F813941C9800195CD1 /* red-orb.png */; };
-		52B8B435139307A40099335A /* MDDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B431139307A40099335A /* MDDeviceManager.m */; };
-		52B8B436139307A40099335A /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8B434139307A40099335A /* MDNotificationCenter.m */; };
-		52B8B44213930E8D0099335A /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
+		52B897221394460400C852D7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
+		52B897281394460400C852D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B897261394460400C852D7 /* InfoPlist.strings */; };
+		52B8972D1394461D00C852D7 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
+		52B897301394464E00C852D7 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8972F1394464E00C852D7 /* Module.m */; };
+		52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
+		52B89734139447E600C852D7 /* EnterRecovery.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52B897211394460400C852D7 /* EnterRecovery.bundle */; };
 		52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E974961393053500535F7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52E974941393053500535F7C /* InfoPlist.strings */; };
@@ -24,6 +30,8 @@
 		52E9749C1393053500535F7C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52E9749A1393053500535F7C /* Credits.rtf */; };
 		52E9749F1393053500535F7C /* RainbowAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E9749E1393053500535F7C /* RainbowAppDelegate.m */; };
 		52E974A21393053500535F7C /* Rainbow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E974A01393053500535F7C /* Rainbow.xib */; };
+		52EEAA1A13944DCB00C1A205 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
+		52EEAA1B13944DDA00C1A205 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +41,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 52B8B4691394048A0099335A;
 			remoteInfo = libleprechaun;
+		};
+		52B897311394476D00C852D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B897201394460400C852D7;
+			remoteInfo = EnterRecovery;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -51,12 +66,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		524B499813946CCB00E16B56 /* EnterRecovery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterRecovery.xib; sourceTree = "<group>"; };
 		52AB55D41394051700195CD1 /* Leprechaun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leprechaun.h; sourceTree = "<group>"; };
 		52AB55D51394051700195CD1 /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leprechaun.m; sourceTree = "<group>"; };
 		52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeprechaunPuncher.h; sourceTree = "<group>"; };
 		52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeprechaunPuncher.m; sourceTree = "<group>"; };
 		52AB55F713941C9800195CD1 /* green-orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-orb.png"; sourceTree = "<group>"; };
 		52AB55F813941C9800195CD1 /* red-orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-orb.png"; sourceTree = "<group>"; };
+		52B897211394460400C852D7 /* EnterRecovery.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnterRecovery.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B897251394460400C852D7 /* EnterRecovery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EnterRecovery-Info.plist"; sourceTree = "<group>"; };
+		52B897271394460400C852D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52B897291394460400C852D7 /* EnterRecovery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EnterRecovery-Prefix.pch"; sourceTree = "<group>"; };
+		52B8972E1394464E00C852D7 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Module.h; sourceTree = "<group>"; };
+		52B8972F1394464E00C852D7 /* Module.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Module.m; sourceTree = "<group>"; };
 		52B8B42F139307650099335A /* MobileDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileDevice.h; sourceTree = "<group>"; };
 		52B8B430139307A40099335A /* MDDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDeviceManager.h; sourceTree = "<group>"; };
 		52B8B431139307A40099335A /* MDDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDeviceManager.m; sourceTree = "<group>"; };
@@ -82,11 +104,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52B8971E1394460400C852D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B897221394460400C852D7 /* Cocoa.framework in Frameworks */,
+				52B8972D1394461D00C852D7 /* libleprechaun.dylib in Frameworks */,
+				52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B8B4671394048A0099335A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */,
+				52EEAA1A13944DCB00C1A205 /* MobileDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,14 +128,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */,
-				52B8B44213930E8D0099335A /* MobileDevice.framework in Frameworks */,
 				52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */,
+				52EEAA1B13944DDA00C1A205 /* MobileDevice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52B897231394460400C852D7 /* EnterRecovery */ = {
+			isa = PBXGroup;
+			children = (
+				52B897241394460400C852D7 /* Supporting Files */,
+				52B8972E1394464E00C852D7 /* Module.h */,
+				52B8972F1394464E00C852D7 /* Module.m */,
+			);
+			path = EnterRecovery;
+			sourceTree = "<group>";
+		};
+		52B897241394460400C852D7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52B897251394460400C852D7 /* EnterRecovery-Info.plist */,
+				52B897261394460400C852D7 /* InfoPlist.strings */,
+				52B897291394460400C852D7 /* EnterRecovery-Prefix.pch */,
+				524B499813946CCB00E16B56 /* EnterRecovery.xib */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		52B8B42D1393074D0099335A /* Device Communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,11 +168,13 @@
 				52B8B42F139307650099335A /* MobileDevice.h */,
 			);
 			name = "Device Communication";
+			path = ../Rainbow;
 			sourceTree = "<group>";
 		};
 		52B8B46D1394048A0099335A /* libleprechaun */ = {
 			isa = PBXGroup;
 			children = (
+				52B8B42D1393074D0099335A /* Device Communication */,
 				52AB55D41394051700195CD1 /* Leprechaun.h */,
 				52AB55D51394051700195CD1 /* Leprechaun.m */,
 				52B8B46E1394048B0099335A /* Supporting Files */,
@@ -139,6 +195,7 @@
 			children = (
 				52E974911393053500535F7C /* Rainbow */,
 				52B8B46D1394048A0099335A /* libleprechaun */,
+				52B897231394460400C852D7 /* EnterRecovery */,
 				52E9748A1393053500535F7C /* Frameworks */,
 				52E974881393053500535F7C /* Products */,
 			);
@@ -149,6 +206,7 @@
 			children = (
 				52E974871393053500535F7C /* Rainbow.app */,
 				52B8B46A1394048A0099335A /* libleprechaun.dylib */,
+				52B897211394460400C852D7 /* EnterRecovery.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +234,6 @@
 		52E974911393053500535F7C /* Rainbow */ = {
 			isa = PBXGroup;
 			children = (
-				52B8B42D1393074D0099335A /* Device Communication */,
 				52E9749D1393053500535F7C /* RainbowAppDelegate.h */,
 				52E9749E1393053500535F7C /* RainbowAppDelegate.m */,
 				52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */,
@@ -215,6 +272,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		52B897201394460400C852D7 /* EnterRecovery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52B8972A1394460400C852D7 /* Build configuration list for PBXNativeTarget "EnterRecovery" */;
+			buildPhases = (
+				52B8971D1394460400C852D7 /* Sources */,
+				52B8971E1394460400C852D7 /* Frameworks */,
+				52B8971F1394460400C852D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EnterRecovery;
+			productName = EnterRecovery;
+			productReference = 52B897211394460400C852D7 /* EnterRecovery.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		52B8B4691394048A0099335A /* libleprechaun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52B8B4701394048B0099335A /* Build configuration list for PBXNativeTarget "libleprechaun" */;
@@ -245,6 +319,7 @@
 			);
 			dependencies = (
 				52B8971C139437AC00C852D7 /* PBXTargetDependency */,
+				52B897321394476D00C852D7 /* PBXTargetDependency */,
 			);
 			name = Rainbow;
 			productName = Rainbow;
@@ -273,11 +348,21 @@
 			targets = (
 				52E974861393053500535F7C /* Rainbow */,
 				52B8B4691394048A0099335A /* libleprechaun */,
+				52B897201394460400C852D7 /* EnterRecovery */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		52B8971F1394460400C852D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B897281394460400C852D7 /* InfoPlist.strings in Resources */,
+				524B499913946CCB00E16B56 /* EnterRecovery.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52E974851393053500535F7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,17 +372,28 @@
 				52E974A21393053500535F7C /* Rainbow.xib in Resources */,
 				52AB55F913941C9800195CD1 /* green-orb.png in Resources */,
 				52AB55FA13941C9800195CD1 /* red-orb.png in Resources */,
+				52B89734139447E600C852D7 /* EnterRecovery.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52B8971D1394460400C852D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B897301394464E00C852D7 /* Module.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B8B4661394048A0099335A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				52AB55D71394051700195CD1 /* Leprechaun.m in Sources */,
+				524B49961394586200E16B56 /* MDDeviceManager.m in Sources */,
+				524B49971394586400E16B56 /* MDNotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,8 +403,6 @@
 			files = (
 				52E974991393053500535F7C /* main.m in Sources */,
 				52E9749F1393053500535F7C /* RainbowAppDelegate.m in Sources */,
-				52B8B435139307A40099335A /* MDDeviceManager.m in Sources */,
-				52B8B436139307A40099335A /* MDNotificationCenter.m in Sources */,
 				52AB55F613941A3900195CD1 /* LeprechaunPuncher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,9 +415,22 @@
 			target = 52B8B4691394048A0099335A /* libleprechaun */;
 			targetProxy = 52B8971B139437AC00C852D7 /* PBXContainerItemProxy */;
 		};
+		52B897321394476D00C852D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B897201394460400C852D7 /* EnterRecovery */;
+			targetProxy = 52B897311394476D00C852D7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		52B897261394460400C852D7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52B897271394460400C852D7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		52E974941393053500535F7C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -351,6 +458,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		52B8972B1394460400C852D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EnterRecovery/EnterRecovery-Prefix.pch";
+				INFOPLIST_FILE = "EnterRecovery/EnterRecovery-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		52B8972C1394460400C852D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EnterRecovery/EnterRecovery-Prefix.pch";
+				INFOPLIST_FILE = "EnterRecovery/EnterRecovery-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		52B8B4711394048B0099335A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -358,6 +505,10 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -375,6 +526,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
@@ -458,6 +613,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52B8972A1394460400C852D7 /* Build configuration list for PBXNativeTarget "EnterRecovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B8972B1394460400C852D7 /* Debug */,
+				52B8972C1394460400C852D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		52B8B4701394048B0099335A /* Build configuration list for PBXNativeTarget "libleprechaun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

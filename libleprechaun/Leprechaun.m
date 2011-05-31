@@ -11,9 +11,9 @@
 
 #define UserPresentableLogMessage(message) message
 
-@implementation LeprechaunSimpleModule 
+@implementation LeprechaunModule
 
-@synthesize delegate=_delegate, currentBundle;
+@synthesize currentBundle=_currentBundle;
 
 - (id)init {
     if((self = [super init]) != nil) {
@@ -24,8 +24,7 @@
 }
 
 - (void)setup {
-    [_loaded release];
-    _loaded = [[NSNumber numberWithBool:YES] retain];
+    
 }
 
 - (void)start {
@@ -33,12 +32,7 @@
 }
 
 - (void)tearDown {
-    [_loaded release];
-    _loaded = [[NSNumber numberWithBool:NO] retain];
-}
-
-- (BOOL)shouldUnloadOnDeselection {
-    return YES;
+    
 }
 
 - (NSString *)userPresentableName {
@@ -59,17 +53,16 @@
 
 - (void)dealloc {
     [_loaded release];
-    [currentBundle release];
+    [_currentBundle release];
     [super dealloc];
 }
 
-@end
-
-
-@implementation LeprechaunUIModule
-
 - (BOOL)enableProgressBarAtStart {
     return NO;
+}
+
+- (BOOL)shouldUnloadOnDeselection {
+    return YES;
 }
 
 - (NSSize)requiredViewSize {

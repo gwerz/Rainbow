@@ -12,14 +12,8 @@
 
 #define BUNDLE_KEY @"bundle"
 #define INSTANCE_KEY @"instance"
-#define TYPE_KEY @"type"
-
-#define TYPE_ONE_CLICK 0
-#define TYPE_UI 1
 
 @implementation LeprechaunPuncher
-
-static NSInteger cachedOneClickCount = -1;
 
 static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 
@@ -41,11 +35,34 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     return self;
 }
 
+- (void)_setupModule:(id)module {
+    [module setup];
+    [[module valueForKey:@"_loaded"] release];
+    [module setValue:[NSNumber numberWithBool:YES] forKey:@"_loaded"];
+}
+
+- (void)_tearDownModule:(id)module {
+    [module tearDown];
+    [[module valueForKey:@"_loaded"] release];
+    [module setValue:[NSNumber numberWithBool:NO] forKey:@"_loaded"]; 
+}
+
 - (void)runModuleNamed:(NSString *)name {
+    while(!loadedModules) { usleep(500); }
+    
     for(NSString *name in [modules allKeys]) {
         id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
         if(![instance isLoaded]) {
-            [instance setup];
+            [self _setupModule:instance];
+            
+//            id view = [[((RainbowAppDelegate *)[NSApp delegate]).moduleView subviews] objectAtIndex:0];
+//            if(view != nil) {
+//                [view removeFromSuperview];
+//            }
+            
+            [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[instance requiredViewSize]];
+            [((RainbowAppDelegate *)[NSApp delegate]).moduleView addSubview:[instance rootView]];
+            
             [instance start];
         }
     }
@@ -55,39 +72,13 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     for(NSString *name in [modules allKeys]) {
         id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
         if([instance isLoaded]) {
-            [instance tearDown];
+            [self _tearDownModule:instance];
         }
     }
-}
-
-- (NSInteger)oneClickModules {
-    if(cachedOneClickCount != -1) {
-        return cachedOneClickCount;
-    }
-    
-    for(NSString *key in [modules allKeys]) {
-        BOOL isOneClick = [[[modules objectForKey:key] objectForKey:TYPE_KEY] boolValue];
-        if(isOneClick) {
-            if(cachedOneClickCount == -1)
-                cachedOneClickCount = 1;
-            else
-                cachedOneClickCount++;
-        }
-    }
-    
-    return cachedOneClickCount;
-}
-
-- (NSInteger)uiModules {
-    return ([[modules allKeys] count] - [self oneClickModules]);
 }
 
 - (NSArray *)moduleNames {
     return [modules allKeys];
-}
-
-- (BOOL)moduleIsOneClickNamed:(NSString *)name {
-    return ![[[modules objectForKey:name] objectForKey:TYPE_KEY] boolValue];
 }
 
 - (void)reloadAllModules {
@@ -104,8 +95,9 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
             [currentBundle load];
             
             id instance = [[[currentBundle principalClass] alloc] init];
+            [instance setValue:[currentBundle retain] forKey:@"_currentBundle"];
             
-            [modules setObject:[NSDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, [NSNumber numberWithBool:[[currentBundle principalClass] isSubclassOfClass:NSClassFromString(@"LeprechaunUIModule")]], TYPE_KEY, nil] forKey:[instance userPresentableName]];
+            [modules setObject:[NSDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, nil] forKey:[instance userPresentableName]];
         }
     }
     
@@ -117,7 +109,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
         id instance = [[modules objectForKey:key] objectForKey:INSTANCE_KEY];
         if(instance != nil) {
             if([[instance valueForKey:@"_loaded"] boolValue] == YES) {
-                [instance tearDown];
+                [self _tearDownModule:instance];
             }
             
             [instance release];
