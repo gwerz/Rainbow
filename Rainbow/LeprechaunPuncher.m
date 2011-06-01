@@ -3,7 +3,7 @@
 //  Rainbow
 //
 //  Created by John Heaton on 5/30/11.
-//  Copyright 2011 Springfield High School. All rights reserved.
+//  Copyright 2011 GJB Software. All rights reserved.
 //
 
 #import "LeprechaunPuncher.h"
@@ -83,7 +83,6 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSString *bundlesPath = [[resourcePath stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"PlugIns"];
-    NSLog(bundlesPath);
     for(NSString *bundleName in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundlesPath error:nil]) {
         if([bundleName rangeOfString:@"bundle"].length != 0) {
             NSBundle *currentBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", bundlesPath, bundleName]];
