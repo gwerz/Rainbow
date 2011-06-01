@@ -29,12 +29,16 @@
     [[MDNotificationCenter sharedInstance] addListener:self];
 }
 
+- (void)start {
+    
+}
+
 - (void)tearDown {
     [[MDNotificationCenter sharedInstance] removeListener:self];
 }
 
 - (void)normalDeviceAttached:(AMDeviceRef)dev {
-    [self sendLogMessage:[NSString stringWithFormat:@"Device found: AMDeviceRef @ %p", dev]];
+    LMLogMessage(self, [NSString stringWithFormat:@"Device found: AMDeviceRef @ %p", dev], NO);
     nDevice = dev;
     
     [goButton setTitle:@"Enter Recovery"];
@@ -52,7 +56,7 @@
 - (void)recoveryDeviceAttached:(AMRecoveryModeDeviceRef)device {
     rDevice = device;
     
-    [self sendLogMessage:[NSString stringWithFormat:@"Device found: AMRecoveryModeDeviceRef @ %p", device]];
+    LMLogMessage(self, [NSString stringWithFormat:@"Device found: AMRecoveryModeDeviceRef @ %p", device], NO);
 
     [goButton setEnabled:YES];
     [goButton setTitle:@"Exit Recovery"];
@@ -71,19 +75,19 @@
 - (IBAction)enterRecovery:(id)sender {
     if(nDevice != NULL) {
         NSInteger status = AMDeviceEnterRecovery(nDevice);
-        [self sendLogMessage:[NSString stringWithFormat:@"AMDeviceEnterRecovery: %d\n", status]];
+        LMLogMessage(self, [NSString stringWithFormat:@"AMDeviceEnterRecovery: %d\n", status], NO);
         
         if(status == kAMStatusSuccess)
             [goButton removeFromSuperview];
     } else if(rDevice != NULL) {
         NSInteger status = AMRecoveryModeDeviceSendCommandToDevice(rDevice, CFSTR("setenv auto-boot true"));
-        [self sendLogMessage:[NSString stringWithFormat:@"\"setenv auto-boot true\": %d", status]];
+        LMLogMessage(self, [NSString stringWithFormat:@"\"setenv auto-boot true\": %d", status], NO);
         
         status = AMRecoveryModeDeviceSendCommandToDevice(rDevice, CFSTR("saveenv"));
-        [self sendLogMessage:[NSString stringWithFormat:@"\"saveenv\": %d", status]];
+        LMLogMessage(self, [NSString stringWithFormat:@"\"saveenv\": %d", status], NO);
         
         status = AMRecoveryModeDeviceSendBlindCommandToDevice(rDevice, CFSTR("reboot"));
-        [self sendLogMessage:[NSString stringWithFormat:@"\"reboot\": %d", status]];
+        LMLogMessage(self, [NSString stringWithFormat:@"\"reboot\": %d", status], NO);
         
         if(status == kAMStatusSuccess)
             [goButton removeFromSuperview];

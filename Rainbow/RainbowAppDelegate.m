@@ -7,7 +7,6 @@
 //
 
 #import "RainbowAppDelegate.h"
-#import "MobileDevice.h"
 #import "MDNotificationCenter.h"
 #import "LeprechaunPuncher.h"
 
@@ -26,9 +25,6 @@ static NSImage *greenOrbImage = nil;
     redOrbImage = [[NSImage imageNamed:@"red-orb.png"] retain];
     greenOrbImage = [[NSImage imageNamed:@"green-orb.png"] retain];
     
-    [logView setEditable:NO];
-    [logDrawer open:self];
-    
     _currentModuleView = nil;
     
     [window setContentBorderThickness:25.0 forEdge:NSMinYEdge];
@@ -42,6 +38,12 @@ static NSImage *greenOrbImage = nil;
     [self logString:@"Welcome to Rainbow, the most powerful iDevice utility!" color:[NSColor blueColor] fontSize:16 senderName:@"Rainbow"];
     
     [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    
+    [self centerWindow];
+    [window makeKeyAndOrderFront:nil];
+    
+    [logView setEditable:NO];
+    [logDrawer open:self];
 }
 
 - (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name {
@@ -95,8 +97,12 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (BOOL)resizeModuleViewToSize:(NSSize)size {
-    if(_currentModuleView)
+    BOOL animate = NO;
+    
+    if(_currentModuleView) {
         [_currentModuleView removeFromSuperview];
+        animate = YES;
+    }
     
     NSRect frame = [window frame];
     NSRect mFrame = [moduleView frame];
@@ -117,7 +123,7 @@ static NSImage *greenOrbImage = nil;
         return NO;
     }
     
-    [window setFrame:frame display:YES animate:YES];
+    [window setFrame:frame display:YES animate:animate];
     
     return YES;
 }
@@ -187,6 +193,10 @@ static NSImage *greenOrbImage = nil;
     _currentModuleView = view;
 }
 
+- (void)centerWindow {
+    [window setFrameOrigin:NSMakePoint(([[NSScreen mainScreen] visibleFrame].size.width / 2) - ([window frame].size.width / 2), ([[NSScreen mainScreen] visibleFrame].size.height / 2) - ([window frame].size.height / 2) + ([[NSScreen mainScreen] visibleFrame].size.height / 8))];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     return [[[LeprechaunPuncher sharedInstance] moduleNames] count];
 }
@@ -197,6 +207,10 @@ static NSImage *greenOrbImage = nil;
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
     [[LeprechaunPuncher sharedInstance] runModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
+}
+
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    [cell setEditable:NO];
 }
 
 @end

@@ -12,6 +12,7 @@
 
 #define BUNDLE_KEY @"bundle"
 #define INSTANCE_KEY @"instance"
+#define LOADSTATE_KEY @"loadstate"
 
 @implementation LeprechaunPuncher
 
@@ -37,27 +38,25 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 
 - (void)_setupModule:(id)module {
     [module setup];
-    [[module valueForKey:@"_loaded"] release];
-    [module setValue:[NSNumber numberWithBool:YES] forKey:@"_loaded"];
+    [[modules objectForKey:[module userPresentableName]] setObject:[NSNumber numberWithBool:YES] forKey:LOADSTATE_KEY];
 }
 
 - (void)_tearDownModule:(id)module {
     [module tearDown];
-    [[module valueForKey:@"_loaded"] release];
-    [module setValue:[NSNumber numberWithBool:NO] forKey:@"_loaded"]; 
+    [[modules objectForKey:[module userPresentableName]] setObject:[NSNumber numberWithBool:NO] forKey:LOADSTATE_KEY];
 }
 
 - (void)runModuleNamed:(NSString *)name {
     id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
-    if(![instance isLoaded]) {
+    if(![[[modules objectForKey:[instance userPresentableName]] objectForKey:LOADSTATE_KEY] boolValue]) {
         [self _setupModule:instance];
             
-        [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[instance requiredViewSize]];
+        [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[[instance rootView] frame].size];
         [((RainbowAppDelegate *)[NSApp delegate]) setCurrentModuleView:[instance rootView]];
             
         [instance start];
     } else {
-        [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[instance requiredViewSize]];
+        [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[[instance rootView] frame].size];
         [((RainbowAppDelegate *)[NSApp delegate]) setCurrentModuleView:[instance rootView]];
     }
 }
@@ -65,7 +64,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 - (void)tearDownModuleNamed:(NSString *)name {
     for(NSString *name in [modules allKeys]) {
         id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
-        if([instance isLoaded]) {
+        if([[[modules objectForKey:[instance userPresentableName]] objectForKey:LOADSTATE_KEY] boolValue]) {
             [self _tearDownModule:instance];
         }
     }
@@ -82,16 +81,22 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     
     modules = [[NSMutableDictionary alloc] initWithCapacity:0];
     
-    NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
-    for(NSString *bundleName in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:resourcePath error:nil]) {
+    NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
+    NSString *bundlesPath = [[resourcePath stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"PlugIns"];
+    NSLog(bundlesPath);
+    for(NSString *bundleName in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundlesPath error:nil]) {
         if([bundleName rangeOfString:@"bundle"].length != 0) {
-            NSBundle *currentBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", resourcePath, bundleName]];
+            NSBundle *currentBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", bundlesPath, bundleName]];
             [currentBundle load];
             
             id instance = [[[currentBundle principalClass] alloc] init];
-            [instance setValue:[currentBundle retain] forKey:@"_currentBundle"];
-            
-            [modules setObject:[NSDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, nil] forKey:[instance userPresentableName]];
+            if(![instance conformsToProtocol:@protocol(Leprechaun)]) {
+                [instance release];
+                [currentBundle unload];
+                [currentBundle release];
+            } else {
+                [modules setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, nil] forKey:[instance userPresentableName]];
+            }
         }
     }
     
@@ -102,10 +107,6 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     for(NSString *key in [modules allKeys]) {
         id instance = [[modules objectForKey:key] objectForKey:INSTANCE_KEY];
         if(instance != nil) {
-            if([[instance valueForKey:@"_loaded"] boolValue] == YES) {
-                [self _tearDownModule:instance];
-            }
-            
             [instance release];
         }
         
@@ -115,6 +116,10 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     }
     
     loadedModules = NO;
+}
+
+- (NSBundle *)bundleForModuleInstance:(id<Leprechaun>)module {
+    return [[modules objectForKey:[module userPresentableName]] objectForKey:BUNDLE_KEY];
 }
 
 - (NSUInteger)retainCount {

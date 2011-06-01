@@ -10,7 +10,7 @@
 #import "Leprechaun.h"
 
 
-@interface EnterRecovery : LeprechaunModule <MDListener> {
+@interface EnterRecovery : NSObject <MDListener, Leprechaun> {
 @private
     AMDeviceRef nDevice;
     AMRecoveryModeDeviceRef rDevice;

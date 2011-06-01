@@ -28,6 +28,7 @@
 		524B4A001394A15D00E16B56 /* MobileDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49FA1394A15D00E16B56 /* MobileDevice.h */; };
 		524B4A011394A1D800E16B56 /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
 		524B4A021394A1E800E16B56 /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
+		528BDD17139701DD00C10C65 /* EnterRecovery.bundle in Copy Modules */ = {isa = PBXBuildFile; fileRef = 52B897211394460400C852D7 /* EnterRecovery.bundle */; };
 		52AB55D61394051700195CD1 /* Leprechaun.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AB55D41394051700195CD1 /* Leprechaun.h */; };
 		52AB55D71394051700195CD1 /* Leprechaun.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55D51394051700195CD1 /* Leprechaun.m */; };
 		52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
@@ -40,7 +41,6 @@
 		52B8972D1394461D00C852D7 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
 		52B897301394464E00C852D7 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8972F1394464E00C852D7 /* Module.m */; };
 		52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
-		52B89734139447E600C852D7 /* EnterRecovery.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 52B897211394460400C852D7 /* EnterRecovery.bundle */; };
 		52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E974961393053500535F7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52E974941393053500535F7C /* InfoPlist.strings */; };
@@ -84,10 +84,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		52AB55D91394090100195CD1 /* Copy Libraries */ = {
+		528BDD16139701CB00C10C65 /* Copy Modules */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				528BDD17139701DD00C10C65 /* EnterRecovery.bundle in Copy Modules */,
+			);
+			name = "Copy Modules";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52AB55D91394090100195CD1 /* Copy Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = ./../Libraries;
 			dstSubfolderSpec = 7;
 			files = (
 				524B49DF13949F9900E16B56 /* libluckycharms.dylib in Copy Libraries */,
@@ -495,6 +506,7 @@
 				52E974841393053500535F7C /* Frameworks */,
 				52E974851393053500535F7C /* Resources */,
 				52AB55D91394090100195CD1 /* Copy Libraries */,
+				528BDD16139701CB00C10C65 /* Copy Modules */,
 			);
 			buildRules = (
 			);
@@ -557,7 +569,6 @@
 				52E974A21393053500535F7C /* Rainbow.xib in Resources */,
 				52AB55F913941C9800195CD1 /* green-orb.png in Resources */,
 				52AB55FA13941C9800195CD1 /* red-orb.png in Resources */,
-				52B89734139447E600C852D7 /* EnterRecovery.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +691,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
 			name = Debug;
 		};
@@ -693,6 +705,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
 			name = Release;
 		};
@@ -864,7 +877,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Resources/";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Libraries";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -884,7 +897,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Resources/";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Libraries";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -900,6 +913,7 @@
 				524B49BE13949EDA00E16B56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		524B49DC13949F6A00E16B56 /* Build configuration list for PBXNativeTarget "libluckycharms" */ = {
 			isa = XCConfigurationList;
@@ -908,6 +922,7 @@
 				524B49DE13949F6A00E16B56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52B8972A1394460400C852D7 /* Build configuration list for PBXNativeTarget "EnterRecovery" */ = {
 			isa = XCConfigurationList;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Leprechaun.h"
 
 @interface LeprechaunPuncher : NSObject {
 @private
@@ -20,6 +21,8 @@
 
 - (void)runModuleNamed:(NSString *)name;
 - (void)tearDownModuleNamed:(NSString *)name;
+
+- (NSBundle *)bundleForModuleInstance:(id<Leprechaun>)module;
 
 - (void)reloadAllModules;
 - (void)unloadAllModules;

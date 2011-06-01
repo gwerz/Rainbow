@@ -31,6 +31,8 @@
 
 - (void)setCurrentModuleView:(NSView *)view;
 
+- (void)centerWindow;
+
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSDrawer *logDrawer;

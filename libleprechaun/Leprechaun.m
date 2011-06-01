@@ -8,77 +8,22 @@
 
 #import "Leprechaun.h"
 #import "RainbowAppDelegate.h"
+#import "LeprechaunPuncher.h"
+#import <objc/runtime.h>
 
-#define UserPresentableLogMessage(message) message
+#define GetAppDelegate() ((RainbowAppDelegate *)[NSApp delegate])
 
-@implementation LeprechaunModule
-
-@synthesize currentBundle=_currentBundle;
-
-- (id)init {
-    if((self = [super init]) != nil) {
-        _loaded = [[NSNumber numberWithBool:NO] retain];
-    }
+void LMLogMessage(id<Leprechaun> module, NSString *message, BOOL isError) {
+    SEL method = (isError ? @selector(logErrorString:senderName:) : @selector(logStringSimple:senderName:));
     
-    return self;
+    [GetAppDelegate() performSelector:method withObject:message withObject:[module userPresentableName]];
 }
 
-- (void)setup {
-    
+void LMSetModuleSelectorLocked(id<Leprechaun> module, BOOL locked) {
+    [GetAppDelegate() setModuleSelectorLocked:locked];
 }
 
-- (void)start {
-    
+NSBundle *LMGetBundle(id<Leprechaun> module) {
+    Class LP = objc_getClass("LeprechaunPuncher");
+    return [[LP sharedInstance] bundleForModuleInstance:module];
 }
-
-- (void)tearDown {
-    
-}
-
-- (NSString *)userPresentableName {
-    return nil;
-}
-
-- (void)sendLogMessage:(NSString *)message {
-    [((RainbowAppDelegate *)[NSApp delegate]) logStringSimple:UserPresentableLogMessage(message) senderName:[self userPresentableName]];
-}
-
-- (void)sendErrorLogMessage:(NSString *)message {
-    [((RainbowAppDelegate *)[NSApp delegate]) logErrorString:UserPresentableLogMessage(message) senderName:[self userPresentableName]];
-}
-
-- (BOOL)isLoaded {
-    return [_loaded boolValue];
-}
-
-- (void)dealloc {
-    [_loaded release];
-    [_currentBundle release];
-    [super dealloc];
-}
-
-- (BOOL)enableProgressBarAtStart {
-    return NO;
-}
-
-- (BOOL)shouldUnloadOnDeselection {
-    return YES;
-}
-
-- (NSSize)requiredViewSize {
-    return NSMakeSize(500, 500);
-}
-
-- (void)lockModuleSelector {
-    [((RainbowAppDelegate *)[NSApp delegate]) setModuleSelectorLocked:YES];
-}
-
-- (void)unlockModuleSelector {
-    [((RainbowAppDelegate *)[NSApp delegate]) setModuleSelectorLocked:NO];
-}
-
-- (NSView *)rootView {
-    return nil;
-}
-
-@end
