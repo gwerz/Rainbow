@@ -691,6 +691,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -706,6 +707,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -727,6 +729,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libluckycharms/libluckycharms-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libluckycharms.dylib";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -747,6 +750,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libluckycharms/libluckycharms-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libluckycharms.dylib";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -766,6 +770,7 @@
 				GCC_PREFIX_HEADER = "EnterRecovery/EnterRecovery-Prefix.pch";
 				INFOPLIST_FILE = "EnterRecovery/EnterRecovery-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -786,6 +791,7 @@
 				GCC_PREFIX_HEADER = "EnterRecovery/EnterRecovery-Prefix.pch";
 				INFOPLIST_FILE = "EnterRecovery/EnterRecovery-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -807,6 +813,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libleprechaun.dylib";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -827,6 +834,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libleprechaun.dylib";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -880,6 +888,7 @@
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Libraries";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = app;
@@ -901,6 +910,7 @@
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Libraries";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = app;

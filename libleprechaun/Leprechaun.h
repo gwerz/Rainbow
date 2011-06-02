@@ -18,6 +18,8 @@
 - (NSString *)userPresentableName;
 - (NSView *)rootView;
 
+- (BOOL)shouldBeKilledOnDeselection;
+
 @end
 
 /* Helper Functions */

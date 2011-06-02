@@ -34,6 +34,7 @@
 }
 
 - (void)tearDown {
+    LMLogMessage(self, @"Unloading...", NO);
     [[MDNotificationCenter sharedInstance] removeListener:self];
 }
 
@@ -70,6 +71,10 @@
     
     [goButton removeFromSuperview];
     [statusField setStringValue:@"Waiting for device..."];
+}
+
+- (BOOL)shouldBeKilledOnDeselection {
+    return YES;
 }
 
 - (IBAction)enterRecovery:(id)sender {

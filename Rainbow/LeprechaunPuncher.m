@@ -30,6 +30,8 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 
 - (id)init {
     if((self = [super init]) != nil) {
+        modules = nil;
+        
         [self reloadAllModules];
     }
     
@@ -76,6 +78,17 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 
 - (void)reloadAllModules {
     if(modules != nil) {
+        for(NSString *key in [modules allKeys]) {
+            if([[[modules objectForKey:key] objectForKey:LOADSTATE_KEY] boolValue] == YES) {
+                id instance = [[modules objectForKey:key] objectForKey:INSTANCE_KEY];
+                [self _tearDownModule:instance];
+                [instance release];
+            }
+            
+            NSBundle *bundle = [[modules objectForKey:key] objectForKey:BUNDLE_KEY];
+            [bundle unload];
+        }
+        
         [modules release];
     } 
     
@@ -83,7 +96,10 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
     NSString *bundlesPath = [[resourcePath stringByAppendingPathComponent:@"Contents"] stringByAppendingPathComponent:@"PlugIns"];
-    for(NSString *bundleName in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundlesPath error:nil]) {
+    
+    NSArray *bundles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundlesPath error:nil];
+    
+    for(NSString *bundleName in bundles) {
         if([bundleName rangeOfString:@"bundle"].length != 0) {
             NSBundle *currentBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", bundlesPath, bundleName]];
             [currentBundle load];
@@ -100,6 +116,8 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     }
     
     loadedModules = YES;
+    
+    [((RainbowAppDelegate *)[NSApp delegate]) performSelector:@selector(reloadTable)];
 }
 
 - (void)unloadAllModules {
@@ -115,6 +133,14 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     }
     
     loadedModules = NO;
+}
+
+- (void)handleDeselectionOfModuleNamed:(NSString *)name {
+    id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
+    
+    if([instance shouldBeKilledOnDeselection]) {
+        [self _tearDownModule:instance];
+    }
 }
 
 - (NSBundle *)bundleForModuleInstance:(id<Leprechaun>)module {

@@ -24,6 +24,8 @@
 
 - (NSBundle *)bundleForModuleInstance:(id<Leprechaun>)module;
 
+- (void)handleDeselectionOfModuleNamed:(NSString *)name;
+
 - (void)reloadAllModules;
 - (void)unloadAllModules;
 

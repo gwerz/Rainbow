@@ -20,6 +20,9 @@
     IBOutlet NSTextField *connectedDeviceLabel;
     IBOutlet NSBox *moduleView;
     id _currentModuleView;
+    NSInteger previousCell;
+    BOOL hasReloadedTable;
+    IBOutlet NSView *noModuleView;
 }
 
 - (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name;
@@ -30,14 +33,13 @@
 - (BOOL)resizeModuleViewToSize:(NSSize)size;
 
 - (void)setCurrentModuleView:(NSView *)view;
+- (void)reloadTable;
 
 - (void)centerWindow;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSDrawer *logDrawer;
-@property (assign) IBOutlet NSProgressIndicator *progressBar;
-@property (assign) IBOutlet NSTextField *progressLabel;
 @property (assign) NSBox *moduleView;
 @property (assign) id _currentModuleView;
 

@@ -17,7 +17,7 @@
 static NSImage *redOrbImage = nil;
 static NSImage *greenOrbImage = nil;
 
-@synthesize window, logView, logDrawer, progressBar, progressLabel, moduleView, _currentModuleView;
+@synthesize window, logView, logDrawer, moduleView, _currentModuleView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     (void)[LeprechaunPuncher sharedInstance];
@@ -35,15 +35,32 @@ static NSImage *greenOrbImage = nil;
     [statusOrbView setImage:redOrbImage];
     [[MDNotificationCenter sharedInstance] addListener:self];
     
-    [self logString:@"Welcome to Rainbow, the most powerful iDevice utility!" color:[NSColor blueColor] fontSize:16 senderName:@"Rainbow"];
+    previousCell = -1;
+    hasReloadedTable = NO;
     
-    [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    [self logString:@"Welcome to Rainbow, the most powerful iDevice utility!" color:[NSColor blueColor] fontSize:16 senderName:@"Rainbow"];
     
     [self centerWindow];
     [window makeKeyAndOrderFront:nil];
     
     [logView setEditable:NO];
     [logDrawer open:self];
+    
+    if([self numberOfRowsInTableView:tableScrollView] != 0) 
+        [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+}
+
+- (void)reloadTable {
+    if(!hasReloadedTable) {
+        hasReloadedTable = YES;
+        
+        return;
+    }
+    
+    [tableScrollView reloadData];
+    
+    if([self numberOfRowsInTableView:tableScrollView] != 0) 
+       [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name {
@@ -206,7 +223,18 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
-    [[LeprechaunPuncher sharedInstance] runModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
+    if(previousCell != -1) {
+        [[LeprechaunPuncher sharedInstance] handleDeselectionOfModuleNamed:[self tableView:tableScrollView objectValueForTableColumn:nil row:previousCell]];
+    }
+    
+    if([tableScrollView selectedRow] >= 0)
+        [[LeprechaunPuncher sharedInstance] runModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
+    else {
+        [self resizeModuleViewToSize:[noModuleView frame].size];
+        [self setCurrentModuleView:noModuleView];
+    }
+    
+    previousCell = [tableScrollView selectedRow];
 }
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
