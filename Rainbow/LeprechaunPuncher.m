@@ -86,7 +86,8 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
             }
             
             NSBundle *bundle = [[modules objectForKey:key] objectForKey:BUNDLE_KEY];
-            [bundle unload];
+            if([bundle isLoaded]) 
+                [bundle unload];
         }
         
         [modules release];
@@ -108,9 +109,10 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
             if(![instance conformsToProtocol:@protocol(Leprechaun)]) {
                 [instance release];
                 [currentBundle unload];
-                [currentBundle release];
             } else {
-                [modules setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, nil] forKey:[instance userPresentableName]];
+                [modules setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, nil] forKey:[[[instance userPresentableName] copy] autorelease]];
+                
+               // [modules setObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:instance, INSTANCE_KEY, [currentBundle retain], BUNDLE_KEY, nil] forKey:[[instance userPresentableName] copy]];
             }
         }
     }
@@ -133,6 +135,28 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     }
     
     loadedModules = NO;
+}
+
+- (void)removeModuleNamed:(NSString *)name {
+    NSLog(@"I hate you");
+    id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
+    
+    if([[[modules objectForKey:name] objectForKey:LOADSTATE_KEY] boolValue] == YES) {
+        [self _tearDownModule:instance];
+    }
+    
+    [instance release];
+    
+    NSBundle *bundle = [[modules objectForKey:name] objectForKey:BUNDLE_KEY];
+    [[modules objectForKey:name] removeAllObjects];
+    
+    [modules removeObjectForKey:name];
+    
+    if([bundle isLoaded]) {
+        [bundle unload];
+    }
+        
+    //[((RainbowAppDelegate *)[NSApp delegate]) performSelector:@selector(reloadTable)];
 }
 
 - (void)handleDeselectionOfModuleNamed:(NSString *)name {

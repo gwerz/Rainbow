@@ -22,6 +22,8 @@
 - (void)runModuleNamed:(NSString *)name;
 - (void)tearDownModuleNamed:(NSString *)name;
 
+- (void)removeModuleNamed:(NSString *)name;
+
 - (NSBundle *)bundleForModuleInstance:(id<Leprechaun>)module;
 
 - (void)handleDeselectionOfModuleNamed:(NSString *)name;

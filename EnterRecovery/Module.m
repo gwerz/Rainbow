@@ -115,4 +115,8 @@
     return @"Recovery Toggler";
 }
 
+- (void)dealloc {
+    [super dealloc];
+}
+
 @end

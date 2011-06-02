@@ -37,6 +37,9 @@
 
 - (void)centerWindow;
 
+- (IBAction)addNewModule:(id)sender;
+- (IBAction)removeSelectedModule:(id)sender;
+
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTextView *logView;
 @property (assign) IBOutlet NSDrawer *logDrawer;

@@ -57,6 +57,7 @@ static NSImage *greenOrbImage = nil;
         return;
     }
     
+    NSLog(@"Reloading");
     [tableScrollView reloadData];
     
     if([self numberOfRowsInTableView:tableScrollView] != 0) 
@@ -114,6 +115,7 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (BOOL)resizeModuleViewToSize:(NSSize)size {
+    NSLog(@"Titties");
     BOOL animate = NO;
     
     if(_currentModuleView) {
@@ -205,6 +207,7 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (void)setCurrentModuleView:(NSView *)view {
+    NSLog(@"Weiners");
     [moduleView addSubview:view];
     
     _currentModuleView = view;
@@ -239,6 +242,29 @@ static NSImage *greenOrbImage = nil;
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     [cell setEditable:NO];
+}
+
+- (IBAction)addNewModule:(id)sender {
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:NO];
+    [panel setCanCreateDirectories:NO];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setAllowedFileTypes:[NSArray arrayWithObject:@"bundle"]];
+    
+    [panel beginSheetModalForWindow:window completionHandler:^(NSInteger result) {
+        if(result == NSOKButton) {
+            NSLog(@"%@", [panel URL]);
+            
+            
+        }
+    }];
+}
+
+- (IBAction)removeSelectedModule:(id)sender {
+    [self resizeModuleViewToSize:[noModuleView frame].size];
+    [self setCurrentModuleView:noModuleView];
+    
+    [[LeprechaunPuncher sharedInstance] removeModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
 }
 
 @end
