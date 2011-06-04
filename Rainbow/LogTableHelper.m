@@ -71,7 +71,7 @@
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
-    return [[table preparedCellAtColumn:1 row:row] cellSizeForBounds:NSMakeRect(0, 0, [[[table tableColumns] objectAtIndex:2] width], NSIntegerMax)].height;
+    return [[table preparedCellAtColumn:2 row:row] cellSizeForBounds:NSMakeRect(0, 0, [[[table tableColumns] objectAtIndex:2] width], NSIntegerMax)].height;
 }
 
 - (void)dealloc {
