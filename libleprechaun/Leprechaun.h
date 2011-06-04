@@ -23,6 +23,6 @@
 @end
 
 /* Helper Functions */
-void LMLogMessage(id<Leprechaun> module, NSString *message, BOOL isError);
+void LMLogMessage(id<Leprechaun> module, NSString *message);
 void LMSetModuleSelectorLocked(id<Leprechaun> module, BOOL locked);
 NSBundle *LMGetBundle(id<Leprechaun> module);

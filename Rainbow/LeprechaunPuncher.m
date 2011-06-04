@@ -9,10 +9,14 @@
 #import "LeprechaunPuncher.h"
 #import "RainbowAppDelegate.h"
 #import "Leprechaun.h"
+#import "LogTableHelper.h"
 
 #define BUNDLE_KEY @"bundle"
 #define INSTANCE_KEY @"instance"
 #define LOADSTATE_KEY @"loadstate"
+
+#define GetAppDelegate() ((RainbowAppDelegate *)[NSApp delegate])
+#define GetLogTableHandler() ((RainbowAppDelegate *)[NSApp delegate]).logTableHelper
 
 @implementation LeprechaunPuncher
 
@@ -31,8 +35,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 - (id)init {
     if((self = [super init]) != nil) {
         modules = nil;
-        
-        [self reloadAllModules];
+        loadedModules = NO;
     }
     
     return self;
@@ -49,13 +52,15 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 }
 
 - (void)runModuleNamed:(NSString *)name {
-    id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
-    if(![[[modules objectForKey:[instance userPresentableName]] objectForKey:LOADSTATE_KEY] boolValue]) {
+    id instance = [self instanceForModule:name];
+    if(![self moduleIsRunning:name]) {
         [self _setupModule:instance];
             
         [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[[instance rootView] frame].size];
         [((RainbowAppDelegate *)[NSApp delegate]) setCurrentModuleView:[instance rootView]];
             
+        [((RainbowAppDelegate *)[NSApp delegate]).logTableHelper appendLogMessage:[NSString stringWithFormat:@"Running %@", name] fromSender:@"LeprechaunLoader"];
+        
         [instance start];
     } else {
         [((RainbowAppDelegate *)[NSApp delegate]) resizeModuleViewToSize:[[instance rootView] frame].size];
@@ -65,10 +70,27 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 
 - (void)tearDownModuleNamed:(NSString *)name {
     for(NSString *name in [modules allKeys]) {
-        id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
-        if([[[modules objectForKey:[instance userPresentableName]] objectForKey:LOADSTATE_KEY] boolValue]) {
+        id instance = [self instanceForModule:name];
+        
+        if([self moduleIsRunning:name]) {
+            [((RainbowAppDelegate *)[NSApp delegate]).logTableHelper appendLogMessage:[NSString stringWithFormat:@"Stopping %@", name] fromSender:@"LeprechaunLoader"];
+            
             [self _tearDownModule:instance];
         }
+    }
+}
+
+- (void)addModuleFromBundle:(NSBundle *)bundle {
+    if(![bundle isLoaded]) {
+        [bundle load];
+    }
+    
+    id instance = [[[bundle principalClass] alloc] init];
+    if(![instance conformsToProtocol:@protocol(Leprechaun)]) {
+        [((RainbowAppDelegate *)[NSApp delegate]).logTableHelper appendLogMessage:[NSString stringWithFormat:@"ERROR: Could not load module. Class %@ does not conform to Leprechaun protocol", NSStringFromClass([bundle principalClass])] fromSender:@"LeprechaunLoader"];
+        [instance release];
+    } else {
+        [modules setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:[instance autorelease], INSTANCE_KEY, bundle, BUNDLE_KEY, nil] forKey:[[[instance userPresentableName] copy] autorelease]];
     }
 }
 
@@ -76,23 +98,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     return [[modules allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
-- (void)reloadAllModules {
-    if(modules != nil) {
-        for(NSString *key in [modules allKeys]) {
-            if([[[modules objectForKey:key] objectForKey:LOADSTATE_KEY] boolValue] == YES) {
-                id instance = [[modules objectForKey:key] objectForKey:INSTANCE_KEY];
-                [self _tearDownModule:instance];
-                [instance release];
-            }
-            
-            NSBundle *bundle = [[modules objectForKey:key] objectForKey:BUNDLE_KEY];
-            if([bundle isLoaded]) 
-                [bundle unload];
-        }
-        
-        [modules release];
-    } 
-    
+- (void)loadAllModules {
     modules = [[NSMutableDictionary alloc] initWithCapacity:0];
     
     NSString *resourcePath = [[NSBundle mainBundle] bundlePath];
@@ -103,72 +109,54 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     for(NSString *bundleName in bundles) {
         if([bundleName rangeOfString:@"bundle"].length != 0) {
             NSBundle *currentBundle = [NSBundle bundleWithPath:[NSString stringWithFormat:@"%@/%@", bundlesPath, bundleName]];
-            [currentBundle load];
             
-            id instance = [[[currentBundle principalClass] alloc] init];
-            if(![instance conformsToProtocol:@protocol(Leprechaun)]) {
-                [instance release];
-                [currentBundle unload];
-            } else {
-                [modules setObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:instance, INSTANCE_KEY, currentBundle, BUNDLE_KEY, nil] forKey:[[[instance userPresentableName] copy] autorelease]];
-                
-               // [modules setObject:[[NSMutableDictionary alloc] initWithObjectsAndKeys:instance, INSTANCE_KEY, [currentBundle retain], BUNDLE_KEY, nil] forKey:[[instance userPresentableName] copy]];
-            }
+            [self addModuleFromBundle:currentBundle];
         }
     }
     
     loadedModules = YES;
-    
-    [((RainbowAppDelegate *)[NSApp delegate]) performSelector:@selector(reloadTable)];
 }
 
 - (void)unloadAllModules {
     for(NSString *key in [modules allKeys]) {
-        id instance = [[modules objectForKey:key] objectForKey:INSTANCE_KEY];
-        if(instance != nil) {
-            [instance release];
-        }
+        [self tearDownModuleNamed:key];
         
-        NSBundle *bundle = [[modules objectForKey:key] objectForKey:BUNDLE_KEY];
-        if([bundle isLoaded]) 
-            [bundle unload];
+        [modules removeObjectForKey:key];
     }
+    
+    [modules release];
     
     loadedModules = NO;
 }
 
+- (id<Leprechaun>)instanceForModule:(NSString *)name {
+    return [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
+}
+
+- (BOOL)moduleIsRunning:(NSString *)name {
+    return [[[modules objectForKey:name] objectForKey:LOADSTATE_KEY] boolValue];
+}
+
 - (void)removeModuleNamed:(NSString *)name {
-    NSLog(@"I hate you");
-    id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
-    
-    if([[[modules objectForKey:name] objectForKey:LOADSTATE_KEY] boolValue] == YES) {
-        [self _tearDownModule:instance];
-    }
-    
-    [instance release];
-    
-    NSBundle *bundle = [[modules objectForKey:name] objectForKey:BUNDLE_KEY];
-    [[modules objectForKey:name] removeAllObjects];
+    [self tearDownModuleNamed:name];
+
+    NSString *path = [[self bundleForModuleNamed:name] bundlePath];
     
     [modules removeObjectForKey:name];
     
-    if([bundle isLoaded]) {
-        [bundle unload];
-    }
-        
-    //[((RainbowAppDelegate *)[NSApp delegate]) performSelector:@selector(reloadTable)];
+    NSLog(@"Remove: %d", [[NSFileManager defaultManager] removeItemAtPath:path error:NULL]);
 }
 
 - (void)handleDeselectionOfModuleNamed:(NSString *)name {
-    id instance = [[modules objectForKey:name] objectForKey:INSTANCE_KEY];
+    id instance = [self instanceForModule:name];
     
     if([instance shouldBeKilledOnDeselection]) {
-        [self _tearDownModule:instance];
+        [self tearDownModuleNamed:name];
     }
 }
 
-- (NSBundle *)bundleForModuleInstance:(id<Leprechaun>)module {
-    return [[modules objectForKey:[module userPresentableName]] objectForKey:BUNDLE_KEY];
+- (NSBundle *)bundleForModuleNamed:(NSString *)name {
+    return [[modules objectForKey:name] objectForKey:BUNDLE_KEY];
 }
 
 - (NSUInteger)retainCount {

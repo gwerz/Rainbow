@@ -11,12 +11,11 @@
 #import "LeprechaunPuncher.h"
 #import <objc/runtime.h>
 
+#define GetLogTableHandler() ((RainbowAppDelegate *)[NSApp delegate]).logTableHelper
 #define GetAppDelegate() ((RainbowAppDelegate *)[NSApp delegate])
 
-void LMLogMessage(id<Leprechaun> module, NSString *message, BOOL isError) {
-    SEL method = (isError ? @selector(logErrorString:senderName:) : @selector(logStringSimple:senderName:));
-    
-    [GetAppDelegate() performSelector:method withObject:message withObject:[module userPresentableName]];
+void LMLogMessage(id<Leprechaun> module, NSString *message) {
+    [GetLogTableHandler() appendLogMessage:message fromSender:[module userPresentableName]];
 }
 
 void LMSetModuleSelectorLocked(id<Leprechaun> module, BOOL locked) {
@@ -25,5 +24,5 @@ void LMSetModuleSelectorLocked(id<Leprechaun> module, BOOL locked) {
 
 NSBundle *LMGetBundle(id<Leprechaun> module) {
     Class LP = objc_getClass("LeprechaunPuncher");
-    return [[LP sharedInstance] bundleForModuleInstance:module];
+    return [[LP sharedInstance] bundleForModuleNamed:[module userPresentableName]];
 }

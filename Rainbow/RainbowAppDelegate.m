@@ -10,18 +10,14 @@
 #import "MDNotificationCenter.h"
 #import "LeprechaunPuncher.h"
 
-#define MODULE_VIEW_TAG 0xFADA
-
 @implementation RainbowAppDelegate
+
+@synthesize logTableHelper;
 
 static NSImage *redOrbImage = nil;
 static NSImage *greenOrbImage = nil;
 
-@synthesize window, logView, logDrawer, moduleView, _currentModuleView;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    (void)[LeprechaunPuncher sharedInstance];
-    
     redOrbImage = [[NSImage imageNamed:@"red-orb.png"] retain];
     greenOrbImage = [[NSImage imageNamed:@"green-orb.png"] retain];
     
@@ -31,91 +27,33 @@ static NSImage *greenOrbImage = nil;
     [window setMovableByWindowBackground:YES];
     
     [connectedDeviceLabel setStringValue:@"No Device Connected"];
+    [logTableHelper appendLogMessage:@"Welcome to Rainbow, the modular iDevice utility for OS X" fromSender:@"Rainbow"];
     
     [statusOrbView setImage:redOrbImage];
     [[MDNotificationCenter sharedInstance] addListener:self];
     
     previousCell = -1;
-    hasReloadedTable = NO;
-    
-    [self logString:@"Welcome to Rainbow, the most powerful iDevice utility!" color:[NSColor blueColor] fontSize:16 senderName:@"Rainbow"];
     
     [self centerWindow];
     [window makeKeyAndOrderFront:nil];
     
-    [logView setEditable:NO];
     [logDrawer open:self];
+    
+    [[LeprechaunPuncher sharedInstance] loadAllModules];
+    [self reloadTable];
     
     if([self numberOfRowsInTableView:tableScrollView] != 0) 
         [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (void)reloadTable {
-    if(!hasReloadedTable) {
-        hasReloadedTable = YES;
-        
-        return;
-    }
-    
-    NSLog(@"Reloading");
     [tableScrollView reloadData];
     
     if([self numberOfRowsInTableView:tableScrollView] != 0) 
-       [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
-}
-
-- (void)logString:(NSString *)string color:(NSColor *)color fontSize:(CGFloat)size senderName:(NSString *)name {
-    NSMutableAttributedString *title = [[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[%@] ", name]] autorelease];
-    NSMutableAttributedString *msg = [[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", string]] autorelease];
-    
-    [title addAttribute:NSForegroundColorAttributeName value:[NSColor darkGrayColor] range:NSMakeRange(0, [title length])];
-    [msg addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, [msg length])];
-    
-    [title addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:size] range:NSMakeRange(0, [title length])];
-    [msg addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:size] range:NSMakeRange(0, [msg length])];
-    
-    NSTextStorage *storage = [logView textStorage];
-    [storage beginEditing];
-    [storage appendAttributedString:title];
-    [storage appendAttributedString:msg];
-    [storage endEditing];
-    
-    [logView scrollToEndOfDocument:nil];
-}
-
-- (void)logStringSimple:(NSString *)string senderName:(NSString *)name {
-    NSMutableAttributedString *title = [[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[%@] ", name]] autorelease];
-    NSMutableAttributedString *msg = [[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n", string]] autorelease];
-    
-    [title addAttribute:NSForegroundColorAttributeName value:[NSColor darkGrayColor] range:NSMakeRange(0, [title length])];
-    
-    NSTextStorage *storage = [logView textStorage];
-    [storage beginEditing];
-    [storage appendAttributedString:title];
-    [storage appendAttributedString:msg];
-    [storage endEditing];
-    
-    [logView scrollToEndOfDocument:nil];
-}
-
-- (void)logErrorString:(NSString *)string senderName:(NSString *)name {
-    NSMutableAttributedString *title = [[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"[%@] ", name]] autorelease];
-    NSMutableAttributedString *msg = [[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"ERROR: %@\n", string]] autorelease];
-    
-    [title addAttribute:NSForegroundColorAttributeName value:[NSColor darkGrayColor] range:NSMakeRange(0, [title length])];
-    [msg addAttribute:NSForegroundColorAttributeName value:[NSColor redColor] range:NSMakeRange(0, [msg length])];
-    
-    NSTextStorage *storage = [logView textStorage];
-    [storage beginEditing];
-    [storage appendAttributedString:title];
-    [storage appendAttributedString:msg];
-    [storage endEditing];
-    
-    [logView scrollToEndOfDocument:nil];
+        [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
 - (BOOL)resizeModuleViewToSize:(NSSize)size {
-    NSLog(@"Titties");
     BOOL animate = NO;
     
     if(_currentModuleView) {
@@ -143,6 +81,7 @@ static NSImage *greenOrbImage = nil;
     }
     
     [window setFrame:frame display:YES animate:animate];
+    [logTableHelper reloadTable];
     
     return YES;
 }
@@ -207,7 +146,6 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (void)setCurrentModuleView:(NSView *)view {
-    NSLog(@"Weiners");
     [moduleView addSubview:view];
     
     _currentModuleView = view;
@@ -222,7 +160,10 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    return [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:row];
+    if([[[LeprechaunPuncher sharedInstance] moduleNames] count] != 0)
+        return [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:row];
+    
+    return nil;
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
@@ -230,7 +171,7 @@ static NSImage *greenOrbImage = nil;
         [[LeprechaunPuncher sharedInstance] handleDeselectionOfModuleNamed:[self tableView:tableScrollView objectValueForTableColumn:nil row:previousCell]];
     }
     
-    if([tableScrollView selectedRow] >= 0)
+    if([tableScrollView selectedRow] >= 0 && [[[LeprechaunPuncher sharedInstance] moduleNames] count] > 0)
         [[LeprechaunPuncher sharedInstance] runModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
     else {
         [self resizeModuleViewToSize:[noModuleView frame].size];
@@ -246,16 +187,20 @@ static NSImage *greenOrbImage = nil;
 
 - (IBAction)addNewModule:(id)sender {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setCanChooseFiles:NO];
+    [panel setCanChooseFiles:YES];
     [panel setCanCreateDirectories:NO];
+    [panel setCanChooseDirectories:YES];
     [panel setAllowsMultipleSelection:NO];
     [panel setAllowedFileTypes:[NSArray arrayWithObject:@"bundle"]];
     
     [panel beginSheetModalForWindow:window completionHandler:^(NSInteger result) {
         if(result == NSOKButton) {
-            NSLog(@"%@", [panel URL]);
+            NSString *filename = [[[panel URL] relativePath] lastPathComponent];
+            NSString *newPath = [NSString stringWithFormat:@"%@/Contents/PlugIns/%@", [[NSBundle mainBundle] bundlePath], filename];
             
-            
+            [[NSFileManager defaultManager] copyItemAtPath:[[panel URL] relativePath] toPath:newPath error:nil];
+            [[LeprechaunPuncher sharedInstance] addModuleFromBundle:[NSBundle bundleWithPath:newPath]];
+            [self reloadTable];
         }
     }];
 }
@@ -263,8 +208,9 @@ static NSImage *greenOrbImage = nil;
 - (IBAction)removeSelectedModule:(id)sender {
     [self resizeModuleViewToSize:[noModuleView frame].size];
     [self setCurrentModuleView:noModuleView];
-    
+
     [[LeprechaunPuncher sharedInstance] removeModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
+    [self reloadTable];
 }
 
 @end

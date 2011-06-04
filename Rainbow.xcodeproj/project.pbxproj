@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5232B4A1139A17F6007044DC /* LogTableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232B4A0139A17F6007044DC /* LogTableHelper.m */; };
 		524B499913946CCB00E16B56 /* EnterRecovery.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524B499813946CCB00E16B56 /* EnterRecovery.xib */; };
 		524B49BF13949EFB00E16B56 /* libiusbcomm.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */; };
 		524B49D013949F4200E16B56 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49CF13949F4200E16B56 /* CoreFoundation.framework */; };
@@ -111,6 +112,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5232B49F139A17F6007044DC /* LogTableHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableHelper.h; sourceTree = "<group>"; };
+		5232B4A0139A17F6007044DC /* LogTableHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableHelper.m; sourceTree = "<group>"; };
 		524B499813946CCB00E16B56 /* EnterRecovery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterRecovery.xib; sourceTree = "<group>"; };
 		524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libiusbcomm.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		524B49CF13949F4200E16B56 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -375,6 +378,8 @@
 				52E9749E1393053500535F7C /* RainbowAppDelegate.m */,
 				52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */,
 				52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */,
+				5232B49F139A17F6007044DC /* LogTableHelper.h */,
+				5232B4A0139A17F6007044DC /* LogTableHelper.m */,
 				52E974A01393053500535F7C /* Rainbow.xib */,
 				52E974921393053500535F7C /* Supporting Files */,
 			);
@@ -617,6 +622,7 @@
 				52E974991393053500535F7C /* main.m in Sources */,
 				52E9749F1393053500535F7C /* RainbowAppDelegate.m in Sources */,
 				52AB55F613941A3900195CD1 /* LeprechaunPuncher.m in Sources */,
+				5232B4A1139A17F6007044DC /* LogTableHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
