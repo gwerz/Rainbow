@@ -12,6 +12,8 @@
 NSString *MDNotificationDeviceAttached = @"MDDeviceAttached";
 NSString *MDNotificationDeviceDetached = @"MDDeviceDetached";
 
+NSString *MDNotificationDeviceTypeKey = @"MDDeviceType";
+
 AMDeviceSubscriptionRef subscription = NULL;
 
 /* Callbacks */
@@ -179,12 +181,12 @@ static MDNotificationCenter *sharedMDNotificationCenter = nil;
 
 - (void)normalDeviceAttached:(AMDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceNormalMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)normalDeviceDetached:(AMDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceNormalMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)normalDeviceConnectionError {
@@ -193,32 +195,32 @@ static MDNotificationCenter *sharedMDNotificationCenter = nil;
 
 - (void)restoreDeviceAttached:(AMRestoreModeDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceRestoreMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)restoreDeviceDetached:(AMRestoreModeDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceRestoreMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)recoveryDeviceAttached:(AMRecoveryModeDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceRecoveryMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)recoveryDeviceDetached:(AMRecoveryModeDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceRecoveryMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)dfuDeviceAttached:(AMDFUModeDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceAttached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceDFUMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 - (void)dfuDeviceDetached:(AMDFUModeDeviceRef)device {
     [self sendMessageToListeners:_cmd withDevice:device];
-    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MDNotificationDeviceDetached object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:kAMDeviceDFUMode] forKey:MDNotificationDeviceTypeKey]];
 }
 
 @end

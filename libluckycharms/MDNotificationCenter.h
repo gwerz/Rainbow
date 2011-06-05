@@ -26,3 +26,6 @@
 // For classes that don't want to implement the listener protocol, but are interested in when a device is attached/detached
 extern NSString *MDNotificationDeviceAttached;
 extern NSString *MDNotificationDeviceDetached;
+
+// User info keys
+extern NSString *MDNotificationDeviceTypeKey; // NSNumber, value is an AMDeviceMode

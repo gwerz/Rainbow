@@ -24,7 +24,9 @@
 
 - (void)reloadTable {
     [table reloadData];
-    [table scrollRowToVisible:[logMessages count]-1];
+    
+    NSRect rect = [table rectOfRow:[logMessages count]-1];
+    [table scrollRectToVisible:rect];
 }
 
 - (void)appendLogMessage:(NSString *)message fromSender:(NSString *)sender {

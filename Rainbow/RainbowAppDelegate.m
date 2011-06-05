@@ -32,25 +32,28 @@ static NSImage *greenOrbImage = nil;
     [statusOrbView setImage:redOrbImage];
     [[MDNotificationCenter sharedInstance] addListener:self];
     
-    previousCell = -1;
+    deselectedCell = -1;
     
     [self centerWindow];
+    
+    [[LeprechaunPuncher sharedInstance] loadAllModules];
+    [tableScrollView reloadData];
+    
+    NSLog(@"%@", [self tableView:nil objectValueForTableColumn:nil row:0]);
+    
     [window makeKeyAndOrderFront:nil];
     
     [logDrawer open:self];
-    
-    [[LeprechaunPuncher sharedInstance] loadAllModules];
-    [self reloadTable];
-    
-    if([self numberOfRowsInTableView:tableScrollView] != 0) 
-        [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    [self selectModuleAtIndex:-1];
 }
 
 - (void)reloadTable {
     [tableScrollView reloadData];
     
-    if([self numberOfRowsInTableView:tableScrollView] != 0) 
-        [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    if([[LeprechaunPuncher sharedInstance] moduleCount] != 0) 
+        [self selectModuleAtIndex:0];
+    else
+        [self selectModuleAtIndex:-1];
 }
 
 - (BOOL)resizeModuleViewToSize:(NSSize)size {
@@ -146,6 +149,9 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (void)setCurrentModuleView:(NSView *)view {
+    if([_currentModuleView isEqual:view]) return;
+    
+    [self resizeModuleViewToSize:[view frame].size];
     [moduleView addSubview:view];
     
     _currentModuleView = view;
@@ -156,29 +162,55 @@ static NSImage *greenOrbImage = nil;
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [[[LeprechaunPuncher sharedInstance] moduleNames] count];
+    return [[LeprechaunPuncher sharedInstance] moduleCount];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    if([[[LeprechaunPuncher sharedInstance] moduleNames] count] != 0)
+    if([[LeprechaunPuncher sharedInstance] moduleCount] != 0)
         return [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:row];
     
     return nil;
 }
 
-- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
-    if(previousCell != -1) {
-        [[LeprechaunPuncher sharedInstance] handleDeselectionOfModuleNamed:[self tableView:tableScrollView objectValueForTableColumn:nil row:previousCell]];
-    }
-    
-    if([tableScrollView selectedRow] >= 0 && [[[LeprechaunPuncher sharedInstance] moduleNames] count] > 0)
-        [[LeprechaunPuncher sharedInstance] runModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
-    else {
-        [self resizeModuleViewToSize:[noModuleView frame].size];
+- (void)selectModuleAtIndex:(NSInteger)index {
+    if(index == -1) {
+        [tableScrollView deselectRow:[tableScrollView selectedRow]];
+        
         [self setCurrentModuleView:noModuleView];
+    } else {
+        [tableScrollView selectRowIndexes:[NSIndexSet indexSetWithIndex:index] byExtendingSelection:NO];
+    }
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+    NSString *currentModuleName = ([tableScrollView selectedRow] != -1 ? [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]] : nil);
+    
+    // handle deselection of cell
+    if(deselectedCell != -1 && [[LeprechaunPuncher sharedInstance] moduleCount] > deselectedCell) {
+        NSString *previousModuleName = [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:deselectedCell];
+        
+        if([[LeprechaunPuncher sharedInstance] moduleExistsNamed:previousModuleName]) {
+            if([[LeprechaunPuncher sharedInstance] moduleWantsTearDownOnDeselection:previousModuleName]) {
+                [[LeprechaunPuncher sharedInstance] tearDownModuleNamed:previousModuleName];
+            } else {
+                [[LeprechaunPuncher sharedInstance] pauseModuleNamed:previousModuleName];
+            }
+        }
     }
     
-    previousCell = [tableScrollView selectedRow];
+    if([tableScrollView selectedRow] == -1) {
+        [self setCurrentModuleView:noModuleView];
+    } else {
+        if([[LeprechaunPuncher sharedInstance] moduleIsStartedNamed:currentModuleName]) {
+            [[LeprechaunPuncher sharedInstance] resumeModuleNamed:currentModuleName];
+        } else {
+            [[LeprechaunPuncher sharedInstance] startModuleNamed:currentModuleName];
+        }
+        
+        [self setCurrentModuleView:[[[LeprechaunPuncher sharedInstance] instanceForModuleNamed:currentModuleName] rootView]];
+    }
+    
+    deselectedCell = [tableScrollView selectedRow];
 }
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
@@ -199,18 +231,28 @@ static NSImage *greenOrbImage = nil;
             NSString *newPath = [NSString stringWithFormat:@"%@/Contents/PlugIns/%@", [[NSBundle mainBundle] bundlePath], filename];
             
             [[NSFileManager defaultManager] copyItemAtPath:[[panel URL] relativePath] toPath:newPath error:nil];
-            [[LeprechaunPuncher sharedInstance] addModuleFromBundle:[NSBundle bundleWithPath:newPath]];
+            [[LeprechaunPuncher sharedInstance] loadModuleFromBundle:[NSBundle bundleWithPath:newPath]];
             [self reloadTable];
         }
     }];
 }
 
 - (IBAction)removeSelectedModule:(id)sender {
-    [self resizeModuleViewToSize:[noModuleView frame].size];
-    [self setCurrentModuleView:noModuleView];
+    [[LeprechaunPuncher sharedInstance] removeModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]] permanently:YES];
+    
+    NSInteger nextIndex = [tableScrollView selectedRow] - [[LeprechaunPuncher sharedInstance] moduleCount];
+    BOOL hasAnotherAvailableModule = ([[LeprechaunPuncher sharedInstance] moduleCount] > 0);
+    
+    nextIndex += (nextIndex == -1 ? 1 : 0);
+    nextIndex += (hasAnotherAvailableModule ? 0 : -1);
+    
+    BOOL mustManuallySendChangeEvent = (nextIndex == [tableScrollView selectedRow]);
 
-    [[LeprechaunPuncher sharedInstance] removeModuleNamed:[[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:[tableScrollView selectedRow]]];
-    [self reloadTable];
+    [tableScrollView reloadData];
+    
+    if(mustManuallySendChangeEvent) {
+        [self tableViewSelectionDidChange:nil];
+    }
 }
 
 @end

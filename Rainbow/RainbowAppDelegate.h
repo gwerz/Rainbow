@@ -22,7 +22,7 @@
     IBOutlet NSView *noModuleView;
     IBOutlet LogTableHelper *logTableHelper;
     id _currentModuleView;
-    NSInteger previousCell;
+    NSInteger deselectedCell;
 }
 
 - (void)setModuleSelectorLocked:(BOOL)locked;
@@ -30,6 +30,7 @@
 
 - (void)setCurrentModuleView:(NSView *)view;
 - (void)reloadTable;
+- (void)selectModuleAtIndex:(NSInteger)index;
 
 - (void)centerWindow;
 

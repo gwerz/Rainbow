@@ -11,14 +11,19 @@
 @protocol Leprechaun <NSObject>
 
 @required
-- (void)setup;
-- (void)tearDown;
-- (void)start;
+- (void)setup; // called ONCE. load resources here
+
+- (void)start; // called on the initial selection.
+- (void)tearDown; // called when the module instance is about to be killed. clean up here
 
 - (NSString *)userPresentableName;
 - (NSView *)rootView;
 
-- (BOOL)shouldBeKilledOnDeselection;
+- (BOOL)shouldTearDownOnDeselection; // call -tearDown instead of -handleDeselectionByUser on deselection 
+
+@optional
+- (void)handleDeselectionByUser;
+- (void)handleReselectionByUser;
 
 @end
 

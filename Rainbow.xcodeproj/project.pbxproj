@@ -8,6 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		5232B4A1139A17F6007044DC /* LogTableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232B4A0139A17F6007044DC /* LogTableHelper.m */; };
+		5232B4F0139AB067007044DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
+		5232B4F6139AB067007044DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5232B4F4139AB067007044DC /* InfoPlist.strings */; };
+		5232B4FD139AB07B007044DC /* GUiRecovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232B4FC139AB07B007044DC /* GUiRecovery.m */; };
+		5232B4FF139AB087007044DC /* GUiRecovery.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5232B4FE139AB087007044DC /* GUiRecovery.xib */; };
+		5232B531139AB203007044DC /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5232B530139AB203007044DC /* IOKit.framework */; };
+		5232B538139AB23E007044DC /* GUiRecovery.bundle in Copy Modules */ = {isa = PBXBuildFile; fileRef = 5232B4EF139AB067007044DC /* GUiRecovery.bundle */; };
+		5232B539139AB24A007044DC /* libusb.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 5232B517139AB167007044DC /* libusb.dylib */; };
+		5232B53A139AB254007044DC /* libirecovery.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 5232B50C139AB0EB007044DC /* libirecovery.dylib */; };
+		5232B53E139AB2A2007044DC /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5232B53D139AB2A2007044DC /* CoreFoundation.framework */; };
+		5232B572139AB385007044DC /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B569139AB385007044DC /* config.h */; };
+		5232B573139AB385007044DC /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = 5232B56A139AB385007044DC /* core.c */; };
+		5232B574139AB385007044DC /* darwin_usb.c in Sources */ = {isa = PBXBuildFile; fileRef = 5232B56B139AB385007044DC /* darwin_usb.c */; };
+		5232B575139AB385007044DC /* darwin_usb.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B56C139AB385007044DC /* darwin_usb.h */; };
+		5232B576139AB385007044DC /* descriptor.c in Sources */ = {isa = PBXBuildFile; fileRef = 5232B56D139AB385007044DC /* descriptor.c */; };
+		5232B577139AB385007044DC /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = 5232B56E139AB385007044DC /* io.c */; };
+		5232B578139AB385007044DC /* libusb.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B56F139AB385007044DC /* libusb.h */; };
+		5232B579139AB385007044DC /* libusbi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B570139AB385007044DC /* libusbi.h */; };
+		5232B57A139AB385007044DC /* sync.c in Sources */ = {isa = PBXBuildFile; fileRef = 5232B571139AB385007044DC /* sync.c */; };
+		5232B57E139AB3BB007044DC /* libirecovery.c in Sources */ = {isa = PBXBuildFile; fileRef = 5232B57C139AB3BB007044DC /* libirecovery.c */; };
+		5232B57F139AB3BB007044DC /* libirecovery.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B57D139AB3BB007044DC /* libirecovery.h */; };
+		5232B594139AB3C6007044DC /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B581139AB3C6007044DC /* config.h */; };
+		5232B595139AB3C6007044DC /* libusb.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B582139AB3C6007044DC /* libusb.h */; };
+		5232B596139AB3C6007044DC /* libusbi.h in Headers */ = {isa = PBXBuildFile; fileRef = 5232B583139AB3C6007044DC /* libusbi.h */; };
+		5232B5A6139AB46A007044DC /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
+		5232B5A8139AB525007044DC /* libusb.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5232B517139AB167007044DC /* libusb.dylib */; };
+		5232B5A9139AB53A007044DC /* libirecovery.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5232B50C139AB0EB007044DC /* libirecovery.dylib */; };
+		5232B5AA139AB582007044DC /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
 		524B499913946CCB00E16B56 /* EnterRecovery.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524B499813946CCB00E16B56 /* EnterRecovery.xib */; };
 		524B49BF13949EFB00E16B56 /* libiusbcomm.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */; };
 		524B49D013949F4200E16B56 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49CF13949F4200E16B56 /* CoreFoundation.framework */; };
@@ -27,7 +54,6 @@
 		524B49FE1394A15D00E16B56 /* MDNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49F81394A15D00E16B56 /* MDNotificationCenter.h */; };
 		524B49FF1394A15D00E16B56 /* MDNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 524B49F91394A15D00E16B56 /* MDNotificationCenter.m */; };
 		524B4A001394A15D00E16B56 /* MobileDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 524B49FA1394A15D00E16B56 /* MobileDevice.h */; };
-		524B4A011394A1D800E16B56 /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
 		524B4A021394A1E800E16B56 /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
 		528BDD17139701DD00C10C65 /* EnterRecovery.bundle in Copy Modules */ = {isa = PBXBuildFile; fileRef = 52B897211394460400C852D7 /* EnterRecovery.bundle */; };
 		52AB55D61394051700195CD1 /* Leprechaun.h in Headers */ = {isa = PBXBuildFile; fileRef = 52AB55D41394051700195CD1 /* Leprechaun.h */; };
@@ -39,7 +65,6 @@
 		52AB55FA13941C9800195CD1 /* red-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F813941C9800195CD1 /* red-orb.png */; };
 		52B897221394460400C852D7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52B897281394460400C852D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B897261394460400C852D7 /* InfoPlist.strings */; };
-		52B8972D1394461D00C852D7 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
 		52B897301394464E00C852D7 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8972F1394464E00C852D7 /* Module.m */; };
 		52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
 		52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
@@ -54,6 +79,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5232B51E139AB19A007044DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5232B516139AB167007044DC;
+			remoteInfo = usb;
+		};
+		5232B532139AB220007044DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5232B516139AB167007044DC;
+			remoteInfo = usb;
+		};
+		5232B534139AB223007044DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5232B50B139AB0EB007044DC;
+			remoteInfo = irecovery;
+		};
+		5232B536139AB227007044DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5232B4EE139AB067007044DC;
+			remoteInfo = GUiRecovery;
+		};
 		524B49CD13949F3000E16B56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 52E9747E1393053500535F7C /* Project object */;
@@ -92,6 +145,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				528BDD17139701DD00C10C65 /* EnterRecovery.bundle in Copy Modules */,
+				5232B538139AB23E007044DC /* GUiRecovery.bundle in Copy Modules */,
 			);
 			name = "Copy Modules";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +159,8 @@
 				524B49DF13949F9900E16B56 /* libluckycharms.dylib in Copy Libraries */,
 				52AB55DA1394093800195CD1 /* libleprechaun.dylib in Copy Libraries */,
 				524B49BF13949EFB00E16B56 /* libiusbcomm.dylib in Copy Libraries */,
+				5232B539139AB24A007044DC /* libusb.dylib in Copy Libraries */,
+				5232B53A139AB254007044DC /* libirecovery.dylib in Copy Libraries */,
 			);
 			name = "Copy Libraries";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +170,31 @@
 /* Begin PBXFileReference section */
 		5232B49F139A17F6007044DC /* LogTableHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableHelper.h; sourceTree = "<group>"; };
 		5232B4A0139A17F6007044DC /* LogTableHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableHelper.m; sourceTree = "<group>"; };
+		5232B4EF139AB067007044DC /* GUiRecovery.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GUiRecovery.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		5232B4F3139AB067007044DC /* GUiRecovery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GUiRecovery-Info.plist"; sourceTree = "<group>"; };
+		5232B4F5139AB067007044DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5232B4F7139AB067007044DC /* GUiRecovery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GUiRecovery-Prefix.pch"; sourceTree = "<group>"; };
+		5232B4FB139AB07B007044DC /* GUiRecovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUiRecovery.h; sourceTree = "<group>"; };
+		5232B4FC139AB07B007044DC /* GUiRecovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUiRecovery.m; sourceTree = "<group>"; };
+		5232B4FE139AB087007044DC /* GUiRecovery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GUiRecovery.xib; sourceTree = "<group>"; };
+		5232B50C139AB0EB007044DC /* libirecovery.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libirecovery.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		5232B517139AB167007044DC /* libusb.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libusb.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		5232B530139AB203007044DC /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		5232B53D139AB2A2007044DC /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		5232B569139AB385007044DC /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = libusb/config.h; sourceTree = "<group>"; };
+		5232B56A139AB385007044DC /* core.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = core.c; path = libusb/core.c; sourceTree = "<group>"; };
+		5232B56B139AB385007044DC /* darwin_usb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = darwin_usb.c; path = libusb/darwin_usb.c; sourceTree = "<group>"; };
+		5232B56C139AB385007044DC /* darwin_usb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = darwin_usb.h; path = libusb/darwin_usb.h; sourceTree = "<group>"; };
+		5232B56D139AB385007044DC /* descriptor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = descriptor.c; path = libusb/descriptor.c; sourceTree = "<group>"; };
+		5232B56E139AB385007044DC /* io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = io.c; path = libusb/io.c; sourceTree = "<group>"; };
+		5232B56F139AB385007044DC /* libusb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libusb.h; path = libusb/libusb.h; sourceTree = "<group>"; };
+		5232B570139AB385007044DC /* libusbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libusbi.h; path = libusb/libusbi.h; sourceTree = "<group>"; };
+		5232B571139AB385007044DC /* sync.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sync.c; path = libusb/sync.c; sourceTree = "<group>"; };
+		5232B57C139AB3BB007044DC /* libirecovery.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = libirecovery.c; path = libirecovery/libirecovery.c; sourceTree = "<group>"; };
+		5232B57D139AB3BB007044DC /* libirecovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = libirecovery.h; path = libirecovery/libirecovery.h; sourceTree = "<group>"; };
+		5232B581139AB3C6007044DC /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		5232B582139AB3C6007044DC /* libusb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libusb.h; sourceTree = "<group>"; };
+		5232B583139AB3C6007044DC /* libusbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libusbi.h; sourceTree = "<group>"; };
 		524B499813946CCB00E16B56 /* EnterRecovery.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnterRecovery.xib; sourceTree = "<group>"; };
 		524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libiusbcomm.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		524B49CF13949F4200E16B56 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -164,6 +245,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5232B4EC139AB067007044DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B4F0139AB067007044DC /* Cocoa.framework in Frameworks */,
+				5232B5A9139AB53A007044DC /* libirecovery.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5232B509139AB0EB007044DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B5A8139AB525007044DC /* libusb.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5232B514139AB167007044DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B53E139AB2A2007044DC /* CoreFoundation.framework in Frameworks */,
+				5232B531139AB203007044DC /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		524B49B813949EDA00E16B56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,9 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52B897221394460400C852D7 /* Cocoa.framework in Frameworks */,
-				52B8972D1394461D00C852D7 /* libleprechaun.dylib in Frameworks */,
-				524B4A011394A1D800E16B56 /* libluckycharms.dylib in Frameworks */,
 				52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */,
+				5232B5A6139AB46A007044DC /* libleprechaun.dylib in Frameworks */,
+				5232B5AA139AB582007044DC /* libluckycharms.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +323,106 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5232B4F1139AB067007044DC /* GUiRecovery */ = {
+			isa = PBXGroup;
+			children = (
+				5232B4FB139AB07B007044DC /* GUiRecovery.h */,
+				5232B4FC139AB07B007044DC /* GUiRecovery.m */,
+				5232B4F2139AB067007044DC /* Supporting Files */,
+			);
+			path = GUiRecovery;
+			sourceTree = "<group>";
+		};
+		5232B4F2139AB067007044DC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5232B4FE139AB087007044DC /* GUiRecovery.xib */,
+				5232B4F3139AB067007044DC /* GUiRecovery-Info.plist */,
+				5232B4F4139AB067007044DC /* InfoPlist.strings */,
+				5232B4F7139AB067007044DC /* GUiRecovery-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5232B510139AB108007044DC /* libirecovery */ = {
+			isa = PBXGroup;
+			children = (
+				5232B57B139AB396007044DC /* include */,
+				5232B512139AB129007044DC /* Frameworks */,
+				5232B511139AB117007044DC /* src */,
+			);
+			name = libirecovery;
+			sourceTree = "<group>";
+		};
+		5232B511139AB117007044DC /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5232B57C139AB3BB007044DC /* libirecovery.c */,
+				5232B57D139AB3BB007044DC /* libirecovery.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		5232B512139AB129007044DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5232B51B139AB170007044DC /* libusb */ = {
+			isa = PBXGroup;
+			children = (
+				5232B51D139AB180007044DC /* Frameworks */,
+				5232B51C139AB178007044DC /* src */,
+			);
+			name = libusb;
+			sourceTree = "<group>";
+		};
+		5232B51C139AB178007044DC /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5232B569139AB385007044DC /* config.h */,
+				5232B56A139AB385007044DC /* core.c */,
+				5232B56B139AB385007044DC /* darwin_usb.c */,
+				5232B56C139AB385007044DC /* darwin_usb.h */,
+				5232B56D139AB385007044DC /* descriptor.c */,
+				5232B56E139AB385007044DC /* io.c */,
+				5232B56F139AB385007044DC /* libusb.h */,
+				5232B570139AB385007044DC /* libusbi.h */,
+				5232B571139AB385007044DC /* sync.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		5232B51D139AB180007044DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5232B53D139AB2A2007044DC /* CoreFoundation.framework */,
+				5232B530139AB203007044DC /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5232B57B139AB396007044DC /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5232B580139AB3C6007044DC /* libusb-1.0 */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		5232B580139AB3C6007044DC /* libusb-1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				5232B581139AB3C6007044DC /* config.h */,
+				5232B582139AB3C6007044DC /* libusb.h */,
+				5232B583139AB3C6007044DC /* libusbi.h */,
+			);
+			name = "libusb-1.0";
+			path = "libirecovery/libusb-1.0";
+			sourceTree = "<group>";
+		};
 		524B49C013949F0300E16B56 /* libiusbcomm */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,10 +538,12 @@
 			children = (
 				52E974911393053500535F7C /* Rainbow */,
 				52B8B46D1394048A0099335A /* libleprechaun */,
-				52B897231394460400C852D7 /* EnterRecovery */,
 				524B49C013949F0300E16B56 /* libiusbcomm */,
 				524B49D913949F6A00E16B56 /* libluckycharms */,
-				52E9748A1393053500535F7C /* Frameworks */,
+				52B897231394460400C852D7 /* EnterRecovery */,
+				5232B4F1139AB067007044DC /* GUiRecovery */,
+				5232B51B139AB170007044DC /* libusb */,
+				5232B510139AB108007044DC /* libirecovery */,
 				52E974881393053500535F7C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -347,6 +556,9 @@
 				52B897211394460400C852D7 /* EnterRecovery.bundle */,
 				524B49BB13949EDA00E16B56 /* libiusbcomm.dylib */,
 				524B49D713949F6A00E16B56 /* libluckycharms.dylib */,
+				5232B4EF139AB067007044DC /* GUiRecovery.bundle */,
+				5232B50C139AB0EB007044DC /* libirecovery.dylib */,
+				5232B517139AB167007044DC /* libusb.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +571,7 @@
 				52E9748D1393053500535F7C /* Other Frameworks */,
 			);
 			name = Frameworks;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		52E9748D1393053500535F7C /* Other Frameworks */ = {
@@ -374,6 +587,7 @@
 		52E974911393053500535F7C /* Rainbow */ = {
 			isa = PBXGroup;
 			children = (
+				52E9748A1393053500535F7C /* Frameworks */,
 				52E9749D1393053500535F7C /* RainbowAppDelegate.h */,
 				52E9749E1393053500535F7C /* RainbowAppDelegate.m */,
 				52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */,
@@ -403,6 +617,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5232B50A139AB0EB007044DC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B57F139AB3BB007044DC /* libirecovery.h in Headers */,
+				5232B594139AB3C6007044DC /* config.h in Headers */,
+				5232B595139AB3C6007044DC /* libusb.h in Headers */,
+				5232B596139AB3C6007044DC /* libusbi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5232B515139AB167007044DC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B572139AB385007044DC /* config.h in Headers */,
+				5232B575139AB385007044DC /* darwin_usb.h in Headers */,
+				5232B578139AB385007044DC /* libusb.h in Headers */,
+				5232B579139AB385007044DC /* libusbi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		524B49B913949EDA00E16B56 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,6 +671,58 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		5232B4EE139AB067007044DC /* GUiRecovery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5232B4F8139AB067007044DC /* Build configuration list for PBXNativeTarget "GUiRecovery" */;
+			buildPhases = (
+				5232B4EB139AB067007044DC /* Sources */,
+				5232B4EC139AB067007044DC /* Frameworks */,
+				5232B4ED139AB067007044DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GUiRecovery;
+			productName = GUiRecovery;
+			productReference = 5232B4EF139AB067007044DC /* GUiRecovery.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		5232B50B139AB0EB007044DC /* irecovery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5232B50D139AB0EB007044DC /* Build configuration list for PBXNativeTarget "irecovery" */;
+			buildPhases = (
+				5232B508139AB0EB007044DC /* Sources */,
+				5232B509139AB0EB007044DC /* Frameworks */,
+				5232B50A139AB0EB007044DC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5232B51F139AB19A007044DC /* PBXTargetDependency */,
+			);
+			name = irecovery;
+			productName = irecovery;
+			productReference = 5232B50C139AB0EB007044DC /* libirecovery.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		5232B516139AB167007044DC /* usb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5232B518139AB167007044DC /* Build configuration list for PBXNativeTarget "usb" */;
+			buildPhases = (
+				5232B513139AB167007044DC /* Sources */,
+				5232B514139AB167007044DC /* Frameworks */,
+				5232B515139AB167007044DC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = usb;
+			productName = usb;
+			productReference = 5232B517139AB167007044DC /* libusb.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
 		524B49BA13949EDA00E16B56 /* iusbcomm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 524B49BC13949EDA00E16B56 /* Build configuration list for PBXNativeTarget "iusbcomm" */;
@@ -519,7 +807,10 @@
 				524B49E113949F9D00E16B56 /* PBXTargetDependency */,
 				52B8971C139437AC00C852D7 /* PBXTargetDependency */,
 				524B49CE13949F3000E16B56 /* PBXTargetDependency */,
+				5232B533139AB220007044DC /* PBXTargetDependency */,
+				5232B535139AB223007044DC /* PBXTargetDependency */,
 				52B897321394476D00C852D7 /* PBXTargetDependency */,
+				5232B537139AB227007044DC /* PBXTargetDependency */,
 			);
 			name = Rainbow;
 			productName = Rainbow;
@@ -550,12 +841,24 @@
 				52B8B4691394048A0099335A /* libleprechaun */,
 				524B49BA13949EDA00E16B56 /* iusbcomm */,
 				524B49D613949F6A00E16B56 /* libluckycharms */,
+				5232B516139AB167007044DC /* usb */,
+				5232B50B139AB0EB007044DC /* irecovery */,
 				52B897201394460400C852D7 /* EnterRecovery */,
+				5232B4EE139AB067007044DC /* GUiRecovery */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5232B4ED139AB067007044DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B4F6139AB067007044DC /* InfoPlist.strings in Resources */,
+				5232B4FF139AB087007044DC /* GUiRecovery.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52B8971F1394460400C852D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -580,6 +883,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5232B4EB139AB067007044DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B4FD139AB07B007044DC /* GUiRecovery.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5232B508139AB0EB007044DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B57E139AB3BB007044DC /* libirecovery.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5232B513139AB167007044DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232B573139AB385007044DC /* core.c in Sources */,
+				5232B574139AB385007044DC /* darwin_usb.c in Sources */,
+				5232B576139AB385007044DC /* descriptor.c in Sources */,
+				5232B577139AB385007044DC /* io.c in Sources */,
+				5232B57A139AB385007044DC /* sync.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		524B49B713949EDA00E16B56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -629,6 +960,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5232B51F139AB19A007044DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5232B516139AB167007044DC /* usb */;
+			targetProxy = 5232B51E139AB19A007044DC /* PBXContainerItemProxy */;
+		};
+		5232B533139AB220007044DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5232B516139AB167007044DC /* usb */;
+			targetProxy = 5232B532139AB220007044DC /* PBXContainerItemProxy */;
+		};
+		5232B535139AB223007044DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5232B50B139AB0EB007044DC /* irecovery */;
+			targetProxy = 5232B534139AB223007044DC /* PBXContainerItemProxy */;
+		};
+		5232B537139AB227007044DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5232B4EE139AB067007044DC /* GUiRecovery */;
+			targetProxy = 5232B536139AB227007044DC /* PBXContainerItemProxy */;
+		};
 		524B49CE13949F3000E16B56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 524B49BA13949EDA00E16B56 /* iusbcomm */;
@@ -652,6 +1003,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5232B4F4139AB067007044DC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5232B4F5139AB067007044DC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		52B897261394460400C852D7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -687,6 +1046,98 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5232B4F9139AB067007044DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GUiRecovery/GUiRecovery-Prefix.pch";
+				INFOPLIST_FILE = "GUiRecovery/GUiRecovery-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		5232B4FA139AB067007044DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GUiRecovery/GUiRecovery-Prefix.pch";
+				INFOPLIST_FILE = "GUiRecovery/GUiRecovery-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		5232B50E139AB0EB007044DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				HEADER_SEARCH_PATHS = "";
+				LD_DYLIB_INSTALL_NAME = "@rpath/libirecovery.dylib";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Debug;
+		};
+		5232B50F139AB0EB007044DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				HEADER_SEARCH_PATHS = "";
+				LD_DYLIB_INSTALL_NAME = "@rpath/libirecovery.dylib";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Release;
+		};
+		5232B519139AB167007044DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Debug;
+		};
+		5232B51A139AB167007044DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+			};
+			name = Release;
+		};
 		524B49BD13949EDA00E16B56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -778,6 +1229,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -799,6 +1251,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -926,6 +1379,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5232B4F8139AB067007044DC /* Build configuration list for PBXNativeTarget "GUiRecovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5232B4F9139AB067007044DC /* Debug */,
+				5232B4FA139AB067007044DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5232B50D139AB0EB007044DC /* Build configuration list for PBXNativeTarget "irecovery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5232B50E139AB0EB007044DC /* Debug */,
+				5232B50F139AB0EB007044DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5232B518139AB167007044DC /* Build configuration list for PBXNativeTarget "usb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5232B519139AB167007044DC /* Debug */,
+				5232B51A139AB167007044DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		524B49BC13949EDA00E16B56 /* Build configuration list for PBXNativeTarget "iusbcomm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

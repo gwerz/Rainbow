@@ -14,7 +14,7 @@
 @synthesize goButton;
 
 -(id)init {
-    if(![NSBundle loadNibNamed:nil owner:self]) {
+    if(![NSBundle loadNibNamed:@"EnterRecovery" owner:self]) {
         return nil;
     }
     
@@ -26,15 +26,13 @@
     
     nDevice = nil;
     rDevice = nil;
-    [[MDNotificationCenter sharedInstance] addListener:self];
 }
 
 - (void)start {
-    
+    [[MDNotificationCenter sharedInstance] addListener:self];
 }
 
 - (void)tearDown {
-    LMLogMessage(self, @"Unloading...");
     [[MDNotificationCenter sharedInstance] removeListener:self];
 }
 
@@ -73,7 +71,7 @@
     [statusField setStringValue:@"Waiting for device..."];
 }
 
-- (BOOL)shouldBeKilledOnDeselection {
+- (BOOL)shouldTearDownOnDeselection {
     return YES;
 }
 
