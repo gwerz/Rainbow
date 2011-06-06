@@ -86,7 +86,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     [modules setObject:[NSDictionary dictionaryWithObjectsAndKeys:
                         bundle, BUNDLE_KEY,
                         instance, INSTANCE_KEY,
-                        [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],  STATE_STARTED_KEY, [NSNumber numberWithBool:YES], STATE_SETUP_KEY, nil], STATE_KEY, nil] forKey:[[[instance userPresentableName] copy] autorelease]];
+                        [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],  STATE_STARTED_KEY, [NSNumber numberWithBool:YES], STATE_SETUP_KEY, nil], STATE_KEY, nil] forKey:[[instance userPresentableName] autorelease]];
     
     return YES;
 }
@@ -166,6 +166,7 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     [instance tearDown];
     
     [[self stateDictionaryForModuleNamed:name] setObject:[NSNumber numberWithBool:NO] forKey:STATE_STARTED_KEY];
+    [[self stateDictionaryForModuleNamed:name] removeObjectForKey:STATE_PAUSE_RESUME_KEY];
 }
 
 - (BOOL)moduleExistsNamed:(NSString *)name {

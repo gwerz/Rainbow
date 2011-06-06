@@ -565,6 +565,31 @@
 								<reference key="NSTextColor" ref="3295607"/>
 							</object>
 						</object>
+						<object class="NSButton" id="687193663">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">292</int>
+							<string key="NSFrame">{{41, 43}, {22, 22}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="403842900">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents"/>
+								<reference key="NSSupport" ref="836187725"/>
+								<reference key="NSControlView" ref="687193663"/>
+								<int key="NSButtonFlags">-2032385793</int>
+								<int key="NSButtonFlags2">34</int>
+								<object class="NSCustomResource" key="NSNormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">NSStopProgressTemplate</string>
+								</object>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">400</int>
+								<int key="NSPeriodicInterval">75</int>
+							</object>
+						</object>
 					</object>
 					<string key="NSFrame">{{7, 11}, {665, 356}}</string>
 					<reference key="NSSuperview"/>
@@ -2781,6 +2806,14 @@
 					</object>
 					<int key="connectionID">640</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">stopCurrentModule:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="403842900"/>
+					</object>
+					<int key="connectionID">650</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -2933,6 +2966,7 @@
 							<reference ref="508375676"/>
 							<reference ref="960278732"/>
 							<reference ref="73736137"/>
+							<reference ref="687193663"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -4083,6 +4117,20 @@
 						<reference key="object" ref="838418468"/>
 						<reference key="parent" ref="427927514"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">647</int>
+						<reference key="object" ref="687193663"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="403842900"/>
+						</object>
+						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">648</int>
+						<reference key="object" ref="403842900"/>
+						<reference key="parent" ref="687193663"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -4354,6 +4402,9 @@
 					<string>642.IBPluginDependency</string>
 					<string>644.IBPluginDependency</string>
 					<string>646.IBPluginDependency</string>
+					<string>647.IBPluginDependency</string>
+					<string>647.ImportedFromIB2</string>
+					<string>648.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
 					<string>73.IBPluginDependency</string>
@@ -4649,6 +4700,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
@@ -4688,7 +4742,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">646</int>
+			<int key="maxID">650</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4783,14 +4837,35 @@
 					<string key="className">RainbowAppDelegate</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">addNewModule:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addNewModule:</string>
+							<string>stopCurrentModule:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">addNewModule:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">addNewModule:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addNewModule:</string>
+							<string>stopCurrentModule:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">addNewModule:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">stopCurrentModule:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -4893,12 +4968,14 @@
 				<string>NSAddTemplate</string>
 				<string>NSMenuCheckmark</string>
 				<string>NSMenuMixedState</string>
+				<string>NSStopProgressTemplate</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{8, 8}</string>
 				<string>{9, 8}</string>
 				<string>{7, 2}</string>
+				<string>{11, 11}</string>
 			</object>
 		</object>
 	</data>

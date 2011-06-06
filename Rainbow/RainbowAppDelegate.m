@@ -172,7 +172,8 @@ static NSImage *yellowCircleImage = nil;
     } else {
         NSString *moduleName = [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:row];
                 
-        if([[LeprechaunPuncher sharedInstance] moduleIsPausedNamed:moduleName] && ![[LeprechaunPuncher sharedInstance] moduleIsRunningNamed:moduleName])
+        if([[LeprechaunPuncher sharedInstance] moduleIsPausedNamed:moduleName] 
+           && ![[LeprechaunPuncher sharedInstance] moduleIsRunningNamed:moduleName])
             return yellowCircleImage;
         else if(![[LeprechaunPuncher sharedInstance] moduleIsStartedNamed:moduleName])
             return redCircleImage;
@@ -202,7 +203,7 @@ static NSImage *yellowCircleImage = nil;
         [reloadSets addIndex:deselectedCell];
          NSString *previousModuleName = [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:deselectedCell];
         
-        if([[LeprechaunPuncher sharedInstance] moduleExistsNamed:previousModuleName]) {
+        if([[LeprechaunPuncher sharedInstance] moduleExistsNamed:previousModuleName] && [[LeprechaunPuncher sharedInstance] moduleIsStartedNamed:previousModuleName]) {
             if([[LeprechaunPuncher sharedInstance] moduleWantsTearDownOnDeselection:previousModuleName]) {
                 [[LeprechaunPuncher sharedInstance] tearDownModuleNamed:previousModuleName];
             } else {
@@ -253,8 +254,20 @@ static NSImage *yellowCircleImage = nil;
     }];
 }
 
+- (IBAction)stopCurrentModule:(id)sender {
+    NSInteger currentIndex = [tableScrollView selectedRow];
+    NSString *name = [[[LeprechaunPuncher sharedInstance] moduleNames] objectAtIndex:currentIndex];
+    
+    [self setCurrentModuleView:noModuleView];
+    [[LeprechaunPuncher sharedInstance] tearDownModuleNamed:name];
+    [tableScrollView deselectAll:nil];
+
+    [tableScrollView reloadDataForRowIndexes:[NSIndexSet indexSetWithIndex:currentIndex] columnIndexes:[NSIndexSet indexSetWithIndex:0]];
+}
+
 - (void)dealloc {
     [redCircleImage release];
+    [greenCircleImage release];
     [yellowCircleImage release];
     [super dealloc];
 }
