@@ -46,7 +46,6 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 }
 
 - (NSArray *)moduleNames {
-    NSLog(@"Modules: %@", modules);
     return [[modules allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
@@ -88,9 +87,6 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
                         bundle, BUNDLE_KEY,
                         instance, INSTANCE_KEY,
                         [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:NO],  STATE_STARTED_KEY, [NSNumber numberWithBool:YES], STATE_SETUP_KEY, nil], STATE_KEY, nil] forKey:[[[instance userPresentableName] copy] autorelease]];
-        
-    
-    NSLog(@"Loaded %@", [instance userPresentableName]);
     
     return YES;
 }
@@ -132,31 +128,33 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
 }
 
 - (BOOL)moduleCanBePausedNamed:(NSString *)name {
-    return [[self instanceForModuleNamed:name] respondsToSelector:@selector(handleDeselectionByUser)];
+    return ![[self instanceForModuleNamed:name] shouldTearDownOnDeselection];
 }
 
 - (void)pauseModuleNamed:(NSString *)name {
     if([self moduleIsPausedNamed:name] || ![self moduleCanBePausedNamed:name]) return;
     
     id<Leprechaun> instance = [self instanceForModuleNamed:name];
-    [instance handleDeselectionByUser];
+    if([instance respondsToSelector:@selector(handleDeselectionByUser)])
+        [instance handleDeselectionByUser];
     
     [[self stateDictionaryForModuleNamed:name] setObject:[NSNumber numberWithInt:STATE_PAUSED] forKey:STATE_PAUSE_RESUME_KEY];
 }
 
 - (BOOL)moduleIsRunningNamed:(NSString *)name {
-    return ![self moduleIsPausedNamed:name];
+    return ([[[self stateDictionaryForModuleNamed:name] objectForKey:STATE_PAUSE_RESUME_KEY] intValue] == STATE_RESUMED);
 }
 
 - (BOOL)moduleCanBeResumedNamed:(NSString *)name {
-    return [[self instanceForModuleNamed:name] respondsToSelector:@selector(handleReselectionByUser)];
+    return ![[self instanceForModuleNamed:name] shouldTearDownOnDeselection];
 }
 
 - (void)resumeModuleNamed:(NSString *)name {
     if([self moduleIsRunningNamed:name] || ![self moduleCanBeResumedNamed:name]) return;
     
     id<Leprechaun> instance = [self instanceForModuleNamed:name];
-    [instance handleReselectionByUser];
+    if([instance respondsToSelector:@selector(handleReselectionByUser)])
+        [instance handleReselectionByUser];
     
     [[self stateDictionaryForModuleNamed:name] setObject:[NSNumber numberWithInt:STATE_RESUMED] forKey:STATE_PAUSE_RESUME_KEY];
 }
@@ -166,6 +164,9 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     
     id<Leprechaun> instance = [self instanceForModuleNamed:name];
     [instance tearDown];
+    
+    
+    [[self stateDictionaryForModuleNamed:name] setObject:[NSNumber numberWithBool:NO] forKey:STATE_STARTED_KEY];
 }
 
 - (BOOL)moduleExistsNamed:(NSString *)name {

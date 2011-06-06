@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5226071E139C868A00AC5A65 /* green-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5226071B139C868A00AC5A65 /* green-circle.png */; };
+		52260720139C868A00AC5A65 /* red-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5226071D139C868A00AC5A65 /* red-circle.png */; };
+		52260722139C893800AC5A65 /* yellow-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 52260721139C893800AC5A65 /* yellow-circle.png */; };
 		5232B4A1139A17F6007044DC /* LogTableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5232B4A0139A17F6007044DC /* LogTableHelper.m */; };
 		5232B4F0139AB067007044DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		5232B4F6139AB067007044DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5232B4F4139AB067007044DC /* InfoPlist.strings */; };
@@ -168,6 +171,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5226071B139C868A00AC5A65 /* green-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-circle.png"; sourceTree = "<group>"; };
+		5226071D139C868A00AC5A65 /* red-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-circle.png"; sourceTree = "<group>"; };
+		52260721139C893800AC5A65 /* yellow-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow-circle.png"; sourceTree = "<group>"; };
 		5232B49F139A17F6007044DC /* LogTableHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogTableHelper.h; sourceTree = "<group>"; };
 		5232B4A0139A17F6007044DC /* LogTableHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogTableHelper.m; sourceTree = "<group>"; };
 		5232B4EF139AB067007044DC /* GUiRecovery.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GUiRecovery.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -603,6 +609,9 @@
 		52E974921393053500535F7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52260721139C893800AC5A65 /* yellow-circle.png */,
+				5226071B139C868A00AC5A65 /* green-circle.png */,
+				5226071D139C868A00AC5A65 /* red-circle.png */,
 				52E974931393053500535F7C /* Rainbow-Info.plist */,
 				52E974941393053500535F7C /* InfoPlist.strings */,
 				52E974971393053500535F7C /* Rainbow-Prefix.pch */,
@@ -877,6 +886,9 @@
 				52E974A21393053500535F7C /* Rainbow.xib in Resources */,
 				52AB55F913941C9800195CD1 /* green-orb.png in Resources */,
 				52AB55FA13941C9800195CD1 /* red-orb.png in Resources */,
+				5226071E139C868A00AC5A65 /* green-circle.png in Resources */,
+				52260720139C868A00AC5A65 /* red-circle.png in Resources */,
+				52260722139C893800AC5A65 /* yellow-circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1386,6 +1398,7 @@
 				5232B4FA139AB067007044DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5232B50D139AB0EB007044DC /* Build configuration list for PBXNativeTarget "irecovery" */ = {
 			isa = XCConfigurationList;
@@ -1394,6 +1407,7 @@
 				5232B50F139AB0EB007044DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5232B518139AB167007044DC /* Build configuration list for PBXNativeTarget "usb" */ = {
 			isa = XCConfigurationList;
@@ -1402,6 +1416,7 @@
 				5232B51A139AB167007044DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		524B49BC13949EDA00E16B56 /* Build configuration list for PBXNativeTarget "iusbcomm" */ = {
 			isa = XCConfigurationList;

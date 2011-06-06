@@ -14,6 +14,7 @@
 @interface GUiRecovery : NSObject <Leprechaun> {
 @private
     NSViewController *rootViewController;
+    irecv_client_t client;
 }
 
 @property (nonatomic, assign) IBOutlet NSViewController *rootViewController;

@@ -35,7 +35,6 @@
 - (void)centerWindow;
 
 - (IBAction)addNewModule:(id)sender;
-- (IBAction)removeSelectedModule:(id)sender;
 
 @property (nonatomic, readonly) LogTableHelper *logTableHelper;
 

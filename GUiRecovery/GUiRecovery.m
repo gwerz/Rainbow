@@ -34,10 +34,19 @@ int device_connected(irecv_client_t client, const irecv_event_t* event) {
 }
 
 - (void)start {
+
+}
+
+- (void)deviceConnected:(NSNotification *)notification {
+    
+}
+
+- (void)deviceDisconnected:(NSNotification *)notification {
+    
 }
 
 - (NSString *)userPresentableName {
-    return @"GUiRecovery";
+    return @"iBoot Console";
 }
 
 - (NSView *)rootView {
