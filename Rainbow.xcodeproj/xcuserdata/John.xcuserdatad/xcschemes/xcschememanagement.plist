@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DeviceInfo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>EnterRecovery.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,11 +23,6 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-		<key>TestLeprechaun.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>irecovery.xcscheme</key>
 		<dict>
@@ -123,6 +123,11 @@
 			<true/>
 		</dict>
 		<key>52B8B4691394048A0099335A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52DBB903139D34E2006BB5DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -69,6 +69,14 @@
 		52B897301394464E00C852D7 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8972F1394464E00C852D7 /* Module.m */; };
 		52B89733139447BE00C852D7 /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B44113930E8D0099335A /* MobileDevice.framework */; };
 		52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
+		52DBB907139D34E2006BB5DB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52DBB906139D34E2006BB5DB /* Cocoa.framework */; };
+		52DBB911139D34E2006BB5DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52DBB90F139D34E2006BB5DB /* InfoPlist.strings */; };
+		52DBB919139D34F5006BB5DB /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
+		52DBB91A139D34F8006BB5DB /* libluckycharms.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49D713949F6A00E16B56 /* libluckycharms.dylib */; };
+		52DBB91C139D3512006BB5DB /* DeviceInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DBB91B139D3512006BB5DB /* DeviceInfo.xib */; };
+		52DBB91F139D352C006BB5DB /* DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DBB91E139D352C006BB5DB /* DeviceInfo.m */; };
+		52DBB920139D38B9006BB5DB /* DeviceInfo.bundle in Copy Modules */ = {isa = PBXBuildFile; fileRef = 52DBB904139D34E2006BB5DB /* DeviceInfo.bundle */; };
+		52DBB921139D3949006BB5DB /* MobileDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524B49E213949FC600E16B56 /* MobileDevice.framework */; };
 		52E9748C1393053500535F7C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52E974961393053500535F7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52E974941393053500535F7C /* InfoPlist.strings */; };
 		52E974991393053500535F7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E974981393053500535F7C /* main.m */; };
@@ -136,6 +144,13 @@
 			remoteGlobalIDString = 52B897201394460400C852D7;
 			remoteInfo = EnterRecovery;
 		};
+		52DBB917139D34EA006BB5DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52E9747E1393053500535F7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52DBB903139D34E2006BB5DB;
+			remoteInfo = DeviceInfo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -147,6 +162,7 @@
 			files = (
 				528BDD17139701DD00C10C65 /* EnterRecovery.bundle in Copy Modules */,
 				5232B538139AB23E007044DC /* GUiRecovery.bundle in Copy Modules */,
+				52DBB920139D38B9006BB5DB /* DeviceInfo.bundle in Copy Modules */,
 			);
 			name = "Copy Modules";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +248,17 @@
 		52B8B46A1394048A0099335A /* libleprechaun.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libleprechaun.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B8B46C1394048A0099335A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		52B8B46F1394048B0099335A /* libleprechaun-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "libleprechaun-Prefix.pch"; sourceTree = "<group>"; };
+		52DBB904139D34E2006BB5DB /* DeviceInfo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeviceInfo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		52DBB906139D34E2006BB5DB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		52DBB909139D34E2006BB5DB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		52DBB90A139D34E2006BB5DB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52DBB90B139D34E2006BB5DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52DBB90E139D34E2006BB5DB /* DeviceInfo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DeviceInfo-Info.plist"; sourceTree = "<group>"; };
+		52DBB910139D34E2006BB5DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52DBB912139D34E2006BB5DB /* DeviceInfo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeviceInfo-Prefix.pch"; sourceTree = "<group>"; };
+		52DBB91B139D3512006BB5DB /* DeviceInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceInfo.xib; sourceTree = "<group>"; };
+		52DBB91D139D352C006BB5DB /* DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfo.h; sourceTree = "<group>"; };
+		52DBB91E139D352C006BB5DB /* DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfo.m; sourceTree = "<group>"; };
 		52E974871393053500535F7C /* Rainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E9748B1393053500535F7C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52E9748E1393053500535F7C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -308,6 +335,17 @@
 			files = (
 				52B8B46B1394048A0099335A /* Cocoa.framework in Frameworks */,
 				52EEAA1A13944DCB00C1A205 /* MobileDevice.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52DBB901139D34E2006BB5DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DBB919139D34F5006BB5DB /* libleprechaun.dylib in Frameworks */,
+				52DBB91A139D34F8006BB5DB /* libluckycharms.dylib in Frameworks */,
+				52DBB921139D3949006BB5DB /* MobileDevice.framework in Frameworks */,
+				52DBB907139D34E2006BB5DB /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +573,46 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		52DBB905139D34E2006BB5DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52DBB906139D34E2006BB5DB /* Cocoa.framework */,
+				52DBB908139D34E2006BB5DB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52DBB908139D34E2006BB5DB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52DBB909139D34E2006BB5DB /* AppKit.framework */,
+				52DBB90A139D34E2006BB5DB /* CoreData.framework */,
+				52DBB90B139D34E2006BB5DB /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		52DBB90C139D34E2006BB5DB /* DeviceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				52DBB91D139D352C006BB5DB /* DeviceInfo.h */,
+				52DBB91E139D352C006BB5DB /* DeviceInfo.m */,
+				52DBB90D139D34E2006BB5DB /* Supporting Files */,
+			);
+			path = DeviceInfo;
+			sourceTree = "<group>";
+		};
+		52DBB90D139D34E2006BB5DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52DBB90E139D34E2006BB5DB /* DeviceInfo-Info.plist */,
+				52DBB90F139D34E2006BB5DB /* InfoPlist.strings */,
+				52DBB912139D34E2006BB5DB /* DeviceInfo-Prefix.pch */,
+				52DBB91B139D3512006BB5DB /* DeviceInfo.xib */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		52E9747C1393053500535F7C = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +624,8 @@
 				5232B4F1139AB067007044DC /* GUiRecovery */,
 				5232B51B139AB170007044DC /* libusb */,
 				5232B510139AB108007044DC /* libirecovery */,
+				52DBB90C139D34E2006BB5DB /* DeviceInfo */,
+				52DBB905139D34E2006BB5DB /* Frameworks */,
 				52E974881393053500535F7C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -561,6 +641,7 @@
 				5232B4EF139AB067007044DC /* GUiRecovery.bundle */,
 				5232B50C139AB0EB007044DC /* libirecovery.dylib */,
 				5232B517139AB167007044DC /* libusb.dylib */,
+				52DBB904139D34E2006BB5DB /* DeviceInfo.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -794,6 +875,23 @@
 			productReference = 52B8B46A1394048A0099335A /* libleprechaun.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
+		52DBB903139D34E2006BB5DB /* DeviceInfo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52DBB915139D34E2006BB5DB /* Build configuration list for PBXNativeTarget "DeviceInfo" */;
+			buildPhases = (
+				52DBB900139D34E2006BB5DB /* Sources */,
+				52DBB901139D34E2006BB5DB /* Frameworks */,
+				52DBB902139D34E2006BB5DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceInfo;
+			productName = DeviceInfo;
+			productReference = 52DBB904139D34E2006BB5DB /* DeviceInfo.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		52E974861393053500535F7C /* Rainbow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52E974B91393053500535F7C /* Build configuration list for PBXNativeTarget "Rainbow" */;
@@ -814,6 +912,7 @@
 				5232B535139AB223007044DC /* PBXTargetDependency */,
 				52B897321394476D00C852D7 /* PBXTargetDependency */,
 				5232B537139AB227007044DC /* PBXTargetDependency */,
+				52DBB918139D34EA006BB5DB /* PBXTargetDependency */,
 			);
 			name = Rainbow;
 			productName = Rainbow;
@@ -848,6 +947,7 @@
 				5232B50B139AB0EB007044DC /* irecovery */,
 				52B897201394460400C852D7 /* EnterRecovery */,
 				5232B4EE139AB067007044DC /* GUiRecovery */,
+				52DBB903139D34E2006BB5DB /* DeviceInfo */,
 			);
 		};
 /* End PBXProject section */
@@ -868,6 +968,15 @@
 			files = (
 				52B897281394460400C852D7 /* InfoPlist.strings in Resources */,
 				524B499913946CCB00E16B56 /* EnterRecovery.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52DBB902139D34E2006BB5DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DBB911139D34E2006BB5DB /* InfoPlist.strings in Resources */,
+				52DBB91C139D3512006BB5DB /* DeviceInfo.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -950,6 +1059,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		52DBB900139D34E2006BB5DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52DBB91F139D352C006BB5DB /* DeviceInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		52E974831393053500535F7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1004,6 +1121,11 @@
 			target = 52B897201394460400C852D7 /* EnterRecovery */;
 			targetProxy = 52B897311394476D00C852D7 /* PBXContainerItemProxy */;
 		};
+		52DBB918139D34EA006BB5DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52DBB903139D34E2006BB5DB /* DeviceInfo */;
+			targetProxy = 52DBB917139D34EA006BB5DB /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1019,6 +1141,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				52B897271394460400C852D7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52DBB90F139D34E2006BB5DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52DBB910139D34E2006BB5DB /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1304,6 +1434,48 @@
 			};
 			name = Release;
 		};
+		52DBB913139D34E2006BB5DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeviceInfo/DeviceInfo-Prefix.pch";
+				INFOPLIST_FILE = "DeviceInfo/DeviceInfo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		52DBB914139D34E2006BB5DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DeviceInfo/DeviceInfo-Prefix.pch";
+				INFOPLIST_FILE = "DeviceInfo/DeviceInfo-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		52E974B71393053500535F7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1447,6 +1619,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		52DBB915139D34E2006BB5DB /* Build configuration list for PBXNativeTarget "DeviceInfo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52DBB913139D34E2006BB5DB /* Debug */,
+				52DBB914139D34E2006BB5DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		52E974811393053500535F7C /* Build configuration list for PBXProject "Rainbow" */ = {
 			isa = XCConfigurationList;

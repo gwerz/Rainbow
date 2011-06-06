@@ -134,7 +134,7 @@ AMStatus AMDeviceEnterRecovery(AMDeviceRef device);
 AMStatus AMDeviceStartSession(AMDeviceRef device);
 AMStatus AMDeviceStopSession(AMDeviceRef device);
 
-CFStringRef AMDeviceCopyValue(AMDeviceRef device, CFStringRef domain, CFStringRef valueName);
+CFTypeRef AMDeviceCopyValue(AMDeviceRef device, CFStringRef domain, CFStringRef valueName);
 
 AMStatus AMDeviceStartService(AMDeviceRef device, CFStringRef serviceName, CFSocketNativeHandle *socketDescriptor);
 
@@ -174,7 +174,8 @@ AMStatus AMRestorePerformRestoreModeRestore(AMRecoveryModeDeviceRef device, CFDi
 // Functions for use with AMDFUModeDeviceRef objects(DFU/WTF interface)
 uint16_t AMDFUModeDeviceGetProductID(AMDFUModeDeviceRef device);
 uint32_t AMDFUModeDeviceGetProductType(AMDFUModeDeviceRef device);
-
+    
+AMStatus USBMuxConnectByPort(int connectionID, int phonePort, CFSocketNativeHandle *outHandle);
 
 // custom functions
 static APPLE_MOBILE_DEVICE *iOSGetDeviceType(uint16_t productID, uint32_t deviceID) {
