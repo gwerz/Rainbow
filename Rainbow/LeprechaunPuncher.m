@@ -165,7 +165,6 @@ static LeprechaunPuncher *sharedLeprechaunPuncher = nil;
     id<Leprechaun> instance = [self instanceForModuleNamed:name];
     [instance tearDown];
     
-    
     [[self stateDictionaryForModuleNamed:name] setObject:[NSNumber numberWithBool:NO] forKey:STATE_STARTED_KEY];
 }
 

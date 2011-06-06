@@ -64,8 +64,6 @@
 		52AB55D8139408F300195CD1 /* libleprechaun.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
 		52AB55DA1394093800195CD1 /* libleprechaun.dylib in Copy Libraries */ = {isa = PBXBuildFile; fileRef = 52B8B46A1394048A0099335A /* libleprechaun.dylib */; };
 		52AB55F613941A3900195CD1 /* LeprechaunPuncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */; };
-		52AB55F913941C9800195CD1 /* green-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F713941C9800195CD1 /* green-orb.png */; };
-		52AB55FA13941C9800195CD1 /* red-orb.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AB55F813941C9800195CD1 /* red-orb.png */; };
 		52B897221394460400C852D7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52E9748B1393053500535F7C /* Cocoa.framework */; };
 		52B897281394460400C852D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52B897261394460400C852D7 /* InfoPlist.strings */; };
 		52B897301394464E00C852D7 /* Module.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B8972F1394464E00C852D7 /* Module.m */; };
@@ -224,8 +222,6 @@
 		52AB55D51394051700195CD1 /* Leprechaun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leprechaun.m; sourceTree = "<group>"; };
 		52AB55F413941A3900195CD1 /* LeprechaunPuncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeprechaunPuncher.h; sourceTree = "<group>"; };
 		52AB55F513941A3900195CD1 /* LeprechaunPuncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeprechaunPuncher.m; sourceTree = "<group>"; };
-		52AB55F713941C9800195CD1 /* green-orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-orb.png"; sourceTree = "<group>"; };
-		52AB55F813941C9800195CD1 /* red-orb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-orb.png"; sourceTree = "<group>"; };
 		52B897211394460400C852D7 /* EnterRecovery.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnterRecovery.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B897251394460400C852D7 /* EnterRecovery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EnterRecovery-Info.plist"; sourceTree = "<group>"; };
 		52B897271394460400C852D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -617,8 +613,6 @@
 				52E974971393053500535F7C /* Rainbow-Prefix.pch */,
 				52E974981393053500535F7C /* main.m */,
 				52E9749A1393053500535F7C /* Credits.rtf */,
-				52AB55F713941C9800195CD1 /* green-orb.png */,
-				52AB55F813941C9800195CD1 /* red-orb.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -884,8 +878,6 @@
 				52E974961393053500535F7C /* InfoPlist.strings in Resources */,
 				52E9749C1393053500535F7C /* Credits.rtf in Resources */,
 				52E974A21393053500535F7C /* Rainbow.xib in Resources */,
-				52AB55F913941C9800195CD1 /* green-orb.png in Resources */,
-				52AB55FA13941C9800195CD1 /* red-orb.png in Resources */,
 				5226071E139C868A00AC5A65 /* green-circle.png in Resources */,
 				52260720139C868A00AC5A65 /* red-circle.png in Resources */,
 				52260722139C893800AC5A65 /* yellow-circle.png in Resources */,
@@ -1131,6 +1123,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				LD_DYLIB_INSTALL_NAME = "@rpath/libusb.dylib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -1145,6 +1138,7 @@
 				EXECUTABLE_PREFIX = lib;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				LD_DYLIB_INSTALL_NAME = "@rpath/libusb.dylib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};

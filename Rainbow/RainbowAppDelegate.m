@@ -14,17 +14,11 @@
 
 @synthesize logTableHelper;
 
-static NSImage *redOrbImage = nil;
-static NSImage *greenOrbImage = nil;
-
 static NSImage *redCircleImage = nil;
 static NSImage *greenCircleImage = nil;
 static NSImage *yellowCircleImage = nil;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    redOrbImage = [[NSImage imageNamed:@"red-orb.png"] retain];
-    greenOrbImage = [[NSImage imageNamed:@"green-orb.png"] retain];
-    
     redCircleImage = [[NSImage imageNamed:@"red-circle.png"] retain];
     greenCircleImage = [[NSImage imageNamed:@"green-circle.png"] retain];
     yellowCircleImage = [[NSImage imageNamed:@"yellow-circle.png"] retain];
@@ -37,7 +31,7 @@ static NSImage *yellowCircleImage = nil;
     [connectedDeviceLabel setStringValue:@"No Device Connected"];
     [logTableHelper appendLogMessage:@"Welcome to Rainbow, the modular iDevice utility for OS X" fromSender:@"Rainbow"];
     
-    [statusOrbView setImage:redOrbImage];
+    [statusOrbView setImage:redCircleImage];
     [[MDNotificationCenter sharedInstance] addListener:self];
     
     deselectedCell = -1;
@@ -104,12 +98,12 @@ static NSImage *yellowCircleImage = nil;
 }
 
 - (void)updateDeviceLabelForDetachedDevice {
-    [statusOrbView setImage:redOrbImage];
+    [statusOrbView setImage:redCircleImage];
     [self labelDeviceAs:@"No Device Connected"];
 }
 
 - (void)updateDeviceLabelForProductID:(uint16_t)pid deviceID:(uint32_t)did isRestore:(BOOL)isRestore {
-    [statusOrbView setImage:greenOrbImage];
+    [statusOrbView setImage:greenCircleImage];
     [self labelDeviceAs:iOSGetDeviceConnectionType(pid, did, isRestore)];
 }
 
@@ -260,8 +254,6 @@ static NSImage *yellowCircleImage = nil;
 }
 
 - (void)dealloc {
-    [redOrbImage release];
-    [greenOrbImage release];
     [redCircleImage release];
     [yellowCircleImage release];
     [super dealloc];

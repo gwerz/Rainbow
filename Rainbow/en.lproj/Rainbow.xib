@@ -527,7 +527,7 @@
 									<string>NeXT TIFF v4.0 pasteboard type</string>
 								</object>
 							</object>
-							<string key="NSFrame">{{6, 6}, {13, 13}}</string>
+							<string key="NSFrame">{{7, 7}, {11, 11}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="960278732"/>
@@ -545,7 +545,7 @@
 						<object class="NSTextField" id="960278732">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{24, 2}, {370, 17}}</string>
+							<string key="NSFrame">{{22, 2}, {370, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -4352,6 +4352,7 @@
 					<string>635.IBPluginDependency</string>
 					<string>641.IBPluginDependency</string>
 					<string>642.IBPluginDependency</string>
+					<string>644.IBPluginDependency</string>
 					<string>646.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
@@ -4624,6 +4625,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
