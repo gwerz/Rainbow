@@ -77,7 +77,7 @@
 
 - (IBAction)enterRecovery:(id)sender {
     if(nDevice != NULL) {
-        NSInteger status = AMDeviceEnterRecovery(nDevice);
+        int status = AMDeviceEnterRecovery(nDevice);
         LMLogMessage(self, [NSString stringWithFormat:@"AMDeviceEnterRecovery: %d\n", status]);
         
         if(status == kAMStatusSuccess)

@@ -19,7 +19,7 @@ typedef struct {
     uint32_t recoveryDeviceID;
 } APPLE_MOBILE_DEVICE;
 
-#define NUM_APPLE_MOBILE_DEVICES 13
+#define NUM_APPLE_MOBILE_DEVICES 14
 
 static APPLE_MOBILE_DEVICE APPLE_MOBILE_DEVICES[NUM_APPLE_MOBILE_DEVICES] = {
     { "iPhone",         0x1290, "iPhone1,1",   "m68ap", 304222464,  310382848 },
@@ -27,6 +27,7 @@ static APPLE_MOBILE_DEVICE APPLE_MOBILE_DEVICES[NUM_APPLE_MOBILE_DEVICES] = {
     { "iPhone 3G[s]",   0x1294, "iPhone2,1",   "n88ap", 35104,      35104 },
     { "iPhone 4(GSM)",  0x1297, "iPhone3,1",   "n90ap", 35120,      35120 },
     { "iPhone 4(CDMA)", 0x129c, "iPhone3,3",   "n92ap", 100698416,  100698416 },
+    { "iPhone 4S",      0x12a0, "iPhone4,1",   "n94ap", 134252864,  134252864 },
     { "iPod touch 1G",  0x1291, "iPod1,1",     "n45ap", 304226560,  310386944 },
     { "iPod touch 2G",  0x1293, "iPod2,1",     "n72ap", 34592,      34592 },
     { "iPod touch 3G",  0x1299, "iPod3,1",     "n18ap", 33589538,   33589538 },
@@ -129,7 +130,7 @@ AMStatus AMDeviceValidatePairing(AMDeviceRef device);
 
 CFStringRef AMDeviceCopyDeviceIdentifier(AMDeviceRef device);
 
-AMStatus AMDeviceEnterRecovery(AMDeviceRef device);
+int AMDeviceEnterRecovery(AMDeviceRef device);
 
 AMStatus AMDeviceStartSession(AMDeviceRef device);
 AMStatus AMDeviceStopSession(AMDeviceRef device);
@@ -211,6 +212,10 @@ static NSString *iOSGetDeviceConnectionType(uint16_t productID, uint32_t deviceI
     NSString *deviceName = @"Unknown Device";
     
     APPLE_MOBILE_DEVICE *device = iOSGetDeviceType(productID, deviceID);
+    
+    if(!device)
+        return nil;
+    
     deviceName = [NSString stringWithUTF8String:device->name];
     
     for(int i=0;i<NUM_APPLE_USB_INTERFACES;++i) {
