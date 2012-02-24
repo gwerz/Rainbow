@@ -104,7 +104,8 @@ static NSImage *yellowCircleImage = nil;
 
 - (void)updateDeviceLabelForProductID:(uint16_t)pid deviceID:(uint32_t)did isRestore:(BOOL)isRestore {
     [statusOrbView setImage:greenCircleImage];
-    [self labelDeviceAs:iOSGetDeviceConnectionType(pid, did, isRestore)];
+    NSString *deviceInfo = iOSGetDeviceConnectionType(pid, did, isRestore);
+    [self labelDeviceAs:(deviceInfo != nil) ? deviceInfo : @"Please Replug Device"];
 }
 
 - (void)normalDeviceAttached:(AMDeviceRef)device {
@@ -270,6 +271,37 @@ static NSImage *yellowCircleImage = nil;
     [greenCircleImage release];
     [yellowCircleImage release];
     [super dealloc];
+}
+
+#pragma mark ---- window delegates ----
+
+// ask to save changes if dirty
+- (BOOL)windowShouldClose:(id)sender
+{
+#pragma unused(sender)
+	
+    return YES;
+}
+
+#pragma mark ---- application delegates ----
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
+{
+#pragma unused(sender)
+	
+	/*if ([window isVisible]) {
+	 [window performClose:nil];
+	 }*/
+    
+    return NSTerminateNow;
+}
+
+// split when window is closed
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
+{
+#pragma unused(sender)
+	
+    return YES;
 }
 
 @end
