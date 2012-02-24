@@ -518,6 +518,7 @@
 				524B49EE1394A0E600E16B56 /* recovery.h */,
 			);
 			name = src;
+			path = libiusbcomm;
 			sourceTree = "<group>";
 		};
 		52B897231394460400C852D7 /* EnterRecovery */ = {
@@ -925,6 +926,7 @@
 		52E9747E1393053500535F7C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Springfield High School";
 			};
 			buildConfigurationList = 52E974811393053500535F7C /* Build configuration list for PBXProject "Rainbow" */;
@@ -1284,7 +1286,6 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -1300,7 +1301,6 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				LD_DYLIB_INSTALL_NAME = "@rpath/libiusbcomm.dylib";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
@@ -1322,7 +1322,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libluckycharms/libluckycharms-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libluckycharms.dylib";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1343,7 +1342,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libluckycharms/libluckycharms-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libluckycharms.dylib";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1363,7 +1361,6 @@
 				GCC_PREFIX_HEADER = "EnterRecovery/EnterRecovery-Prefix.pch";
 				INFOPLIST_FILE = "EnterRecovery/EnterRecovery-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = bundle;
@@ -1385,7 +1382,6 @@
 				GCC_PREFIX_HEADER = "EnterRecovery/EnterRecovery-Prefix.pch";
 				INFOPLIST_FILE = "EnterRecovery/EnterRecovery-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = bundle;
@@ -1408,7 +1404,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libleprechaun.dylib";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1429,7 +1424,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libleprechaun/libleprechaun-Prefix.pch";
 				LD_DYLIB_INSTALL_NAME = "@rpath/libleprechaun.dylib";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1438,7 +1432,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1459,7 +1452,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1525,7 +1517,6 @@
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Libraries";
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = app;
@@ -1547,7 +1538,6 @@
 				GCC_PREFIX_HEADER = "Rainbow/Rainbow-Prefix.pch";
 				INFOPLIST_FILE = "Rainbow/Rainbow-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Libraries";
-				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				WRAPPER_EXTENSION = app;
@@ -1627,6 +1617,7 @@
 				52DBB914139D34E2006BB5DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52E974811393053500535F7C /* Build configuration list for PBXProject "Rainbow" */ = {
 			isa = XCConfigurationList;
